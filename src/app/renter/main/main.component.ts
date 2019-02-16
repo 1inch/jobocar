@@ -3,6 +3,7 @@ import {faArrowLeft, faCog} from '@fortawesome/free-solid-svg-icons';
 import {NavigationService} from './navigation.service';
 import {UPortService} from './uport.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 import gravatar from 'gravatar';
 
@@ -19,6 +20,7 @@ export class MainComponent implements OnInit {
     loading = true;
 
     constructor(
+        private location: Location,
         private navigationService: NavigationService,
         private uPortService: UPortService,
         private route: ActivatedRoute,
@@ -31,12 +33,18 @@ export class MainComponent implements OnInit {
         if (this.uPortService.isConnected()) {
             this.gravatarUrl = gravatar.url(this.uPortService.uport.state.email);
             this.loading = false;
+
+            console.log('Existing state', this.uPortService.uport.state);
         } else {
 
             this.uPortService.requestDisclosure()
                 .subscribe(state => {
                     this.gravatarUrl = gravatar.url(state.email);
                     this.loading = false;
+
+                    console.log('State', state);
+
+                    this.router.navigate(['/renter']);
                 });
         }
     }

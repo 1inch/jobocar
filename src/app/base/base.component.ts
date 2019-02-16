@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {UPortService} from '../renter/main/uport.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-base',
-  templateUrl: './base.component.html',
-  styleUrls: ['./base.component.css']
+    selector: 'app-base',
+    templateUrl: './base.component.html',
+    styleUrls: ['./base.component.css']
 })
 export class BaseComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
