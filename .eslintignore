@@ -5,3 +5,4 @@ test/helpers
 karma.conf.js
 protractor.conf.js
 patch.js
+parser.js
