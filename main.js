@@ -100,17 +100,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _renter_main_uport_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./renter/main/uport.service */ "./src/app/renter/main/uport.service.ts");
+
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(uPortService) {
+        this.uPortService = uPortService;
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_renter_main_uport_service__WEBPACK_IMPORTED_MODULE_2__["UPortService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -309,6 +313,56 @@ var NoContentComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/renter/main/uport.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/renter/main/uport.service.ts ***!
+  \**********************************************/
+/*! exports provided: UPortService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPortService", function() { return UPortService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var uport_connect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! uport-connect */ "./node_modules/uport-connect/lib/index.js");
+/* harmony import */ var uport_connect__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(uport_connect__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var UPortService = /** @class */ (function () {
+    function UPortService() {
+        this.uport = new uport_connect__WEBPACK_IMPORTED_MODULE_2__["Connect"]('Jobocar', { network: 'mainnet' });
+    }
+    UPortService.prototype.requestDisclosure = function () {
+        var reqObj = {
+            requested: ['name', 'country', 'image'],
+            notifications: true
+        };
+        this.uport.requestDisclosure(reqObj);
+        this.uport.onResponse('disclosureReq').then(function (res) {
+            var did = res.payload.did;
+            var payload = res.payload;
+            console.log('DID', did);
+            console.log('Payload', payload);
+        });
+    };
+    UPortService.prototype.isConnected = function () {
+        return this.uport.did || false;
+    };
+    UPortService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], UPortService);
+    return UPortService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -365,6 +419,83 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 
 module.exports = __webpack_require__(/*! /home/circleci/repo/src/main.ts */"./src/main.ts");
 
+
+/***/ }),
+
+/***/ 1:
+/*!************************!*\
+  !*** buffer (ignored) ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 2:
+/*!************************!*\
+  !*** crypto (ignored) ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 3:
+/*!********************************!*\
+  !*** xmlhttprequest (ignored) ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 4:
+/*!********************************!*\
+  !*** xmlhttprequest (ignored) ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 5:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 6:
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 7:
+/*!************************!*\
+  !*** crypto (ignored) ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ })
 
