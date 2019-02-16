@@ -21418,7 +21418,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n\n    <button (click)=\"goBack()\" [hidden]=\"!navigationService.showBackButton\"\n            class=\"btn btn-link my-2 my-sm-0 text-success\" type=\"submit\">\n        <fa-icon [icon]=\"backIcon\" style=\"font-size: 30px;\"></fa-icon>\n    </button>\n\n    <button [hidden]=\"navigationService.showBackButton\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\"\n            aria-label=\"Toggle navigation\" class=\"navbar-toggler text-success\" data-target=\"#navbarSupportedContent\"\n            data-toggle=\"collapse\" style=\"display: block;\" type=\"button\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse show navbar-collapse\" id=\"navbarSupportedContent\"\n         style=\"display: flex!important;flex-basis: auto;\">\n        <a class=\"ml-auto mr-auto\">\n            <img alt=\"Jobocar\" height=\"50\" src=\"assets/logo-small.svg\" style=\"display: block;\">\n        </a>\n        <div class=\"my-2 my-lg-0\">\n            <img [src]=\"gravatarUrl\" [hidden]=\"!uPortService.uport.state.email\" width=\"32\">\n            {{uPortService.uport.state.name}}\n            <button class=\"btn btn-link my-2 my-sm-0 text-success\" routerLink=\"/renter/settings\" type=\"submit\">\n                <fa-icon [icon]=\"settingsIcon\" style=\"font-size: 30px;\"></fa-icon>\n            </button>\n        </div>\n    </div>\n</nav>\n\n<div class=\"container-fluid\" [hidden]=\"!loading\" style=\"height: 100%;\">\n    <div class=\"row align-items-center\" style=\"min-height: 100%\">\n        <div class=\"col\" style=\"text-align: center;\">\n            <h2><strong>uPort.me</strong> Authentication! Please wait...</h2>\n        </div>\n    </div>\n</div>\n\n<div [hidden]=\"loading\">\n    <router-outlet *ngIf=\"!loading\"></router-outlet>\n</div>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n\n    <button (click)=\"goBack()\" [hidden]=\"!navigationService.showBackButton\"\n            class=\"btn btn-link my-2 my-sm-0 text-success\" type=\"submit\">\n        <fa-icon [icon]=\"backIcon\" style=\"font-size: 30px;\"></fa-icon>\n    </button>\n\n    <button [hidden]=\"navigationService.showBackButton\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\"\n            aria-label=\"Toggle navigation\" class=\"navbar-toggler text-success\" data-target=\"#navbarSupportedContent\"\n            data-toggle=\"collapse\" style=\"display: block;\" type=\"button\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse show navbar-collapse\" id=\"navbarSupportedContent\"\n         style=\"display: flex!important;flex-basis: auto;\">\n        <a class=\"ml-auto mr-auto\">\n            <img alt=\"Jobocar\" height=\"50\" src=\"assets/logo-small.svg\" style=\"display: block;\">\n        </a>\n        <div class=\"my-2 my-lg-0\">\n            <img [src]=\"gravatarUrl\" [hidden]=\"!uPortService.uport.state.email\" width=\"32\">\n            {{uPortService.uport.state.name}}\n            <button class=\"btn btn-link my-2 my-sm-0 text-success\" routerLink=\"/renter/settings\" type=\"submit\">\n                <fa-icon [icon]=\"settingsIcon\" style=\"font-size: 30px;\"></fa-icon>\n            </button>\n        </div>\n    </div>\n</nav>\n\n<div class=\"container-fluid\" [hidden]=\"!loading\" style=\"height: 100%;\">\n    <div class=\"row align-items-center\" style=\"min-height: 100%\">\n        <div class=\"col\" style=\"text-align: center;\">\n            <h2><strong>uPort.me</strong> Authentication! Please wait...</h2>\n        </div>\n    </div>\n</div>\n\n<div [hidden]=\"loading\">\n    <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -21438,8 +21438,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navigation.service */ "./src/app/renter/main/navigation.service.ts");
 /* harmony import */ var _uport_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./uport.service */ "./src/app/renter/main/uport.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var gravatar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! gravatar */ "./node_modules/gravatar/index.js");
-/* harmony import */ var gravatar__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(gravatar__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var gravatar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gravatar */ "./node_modules/gravatar/index.js");
+/* harmony import */ var gravatar__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(gravatar__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -21448,7 +21450,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MainComponent = /** @class */ (function () {
-    function MainComponent(navigationService, uPortService, route, router) {
+    function MainComponent(location, navigationService, uPortService, route, router) {
+        this.location = location;
         this.navigationService = navigationService;
         this.uPortService = uPortService;
         this.route = route;
@@ -21461,14 +21464,17 @@ var MainComponent = /** @class */ (function () {
     MainComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (this.uPortService.isConnected()) {
-            this.gravatarUrl = gravatar__WEBPACK_IMPORTED_MODULE_6___default.a.url(this.uPortService.uport.state.email);
+            this.gravatarUrl = gravatar__WEBPACK_IMPORTED_MODULE_7___default.a.url(this.uPortService.uport.state.email);
             this.loading = false;
+            console.log('Existing state', this.uPortService.uport.state);
         }
         else {
             this.uPortService.requestDisclosure()
                 .subscribe(function (state) {
-                _this.gravatarUrl = gravatar__WEBPACK_IMPORTED_MODULE_6___default.a.url(state.email);
+                _this.gravatarUrl = gravatar__WEBPACK_IMPORTED_MODULE_7___default.a.url(state.email);
                 _this.loading = false;
+                console.log('State', state);
+                _this.router.navigate(['/renter']);
             });
         }
     };
@@ -21481,7 +21487,8 @@ var MainComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./main.component.html */ "./src/app/renter/main/main.component.html"),
             styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/renter/main/main.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"],
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"],
+            _navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"],
             _uport_service__WEBPACK_IMPORTED_MODULE_4__["UPortService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
