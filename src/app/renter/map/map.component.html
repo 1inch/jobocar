@@ -10,3 +10,9 @@
     (markerClick)="markerClick($event, car)"
   ></agm-marker>
 </agm-map>
+
+<div id="info-window" *ngIf="selectedCar">
+  <img src="assets/car.png" [title]="selectedCar.title">
+  <h2>{{selectedCar.title}}</h2>
+  <h3>{{selectedCar.subTitle}}</h3>
+</div>

@@ -13,6 +13,8 @@ export class MapComponent implements OnInit {
 
   cars = [];
 
+  selectedCar = null;
+
   styles = [
     {
       'featureType': 'all',
@@ -295,6 +297,7 @@ export class MapComponent implements OnInit {
 
           this.cars.push({
             title: 'Car ' + i,
+            subTitle: 'Mercedes Benz E200',
             price: 0.35,
             minPurchase: 5,
             fuel: 100,
@@ -327,6 +330,13 @@ export class MapComponent implements OnInit {
 
     console.log('Event', $event);
     console.log('Selected car:', car);
+
+    for (let i = 0; i < this.cars.length; i++) {
+      this.cars[i].icon = 'assets/car.png';
+    }
+
+    car.icon = 'assets/car-selected.png';
+    this.selectedCar = car;
   }
 
 }

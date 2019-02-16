@@ -5,3 +5,11 @@ agm-map {
   position: fixed;
   height: 100%;
 }
+
+#info-window {
+  background: white;
+  height: 200px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
