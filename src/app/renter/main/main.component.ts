@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {faArrowLeft, faCog} from '@fortawesome/free-solid-svg-icons';
-import {Location} from '@angular/common';
 import {NavigationService} from './navigation.service';
 import {UPortService} from './uport.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-main',
@@ -15,9 +15,10 @@ export class MainComponent implements OnInit {
     backIcon = faArrowLeft;
 
     constructor(
-        private location: Location,
         private navigationService: NavigationService,
         private uPortService: UPortService,
+        private route: ActivatedRoute,
+        private router: Router
     ) {
     }
 
@@ -27,7 +28,6 @@ export class MainComponent implements OnInit {
     }
 
     goBack() {
-        this.location.back();
+        this.router.navigate(['/renter']);
     }
-
 }
