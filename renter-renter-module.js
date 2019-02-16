@@ -93644,9 +93644,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _navigation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navigation.service */ "./src/app/renter/main/navigation.service.ts");
-/* harmony import */ var _uport_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./uport.service */ "./src/app/renter/main/uport.service.ts");
+/* harmony import */ var _navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navigation.service */ "./src/app/renter/main/navigation.service.ts");
+/* harmony import */ var _uport_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./uport.service */ "./src/app/renter/main/uport.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
@@ -93654,10 +93654,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MainComponent = /** @class */ (function () {
-    function MainComponent(location, navigationService, uPortService) {
-        this.location = location;
+    function MainComponent(navigationService, uPortService, route, router) {
         this.navigationService = navigationService;
         this.uPortService = uPortService;
+        this.route = route;
+        this.router = router;
         this.settingsIcon = _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCog"];
         this.backIcon = _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"];
     }
@@ -93665,7 +93666,7 @@ var MainComponent = /** @class */ (function () {
         this.uPortService.requestDisclosure();
     };
     MainComponent.prototype.goBack = function () {
-        this.location.back();
+        this.router.navigate(['/renter']);
     };
     MainComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -93673,9 +93674,10 @@ var MainComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./main.component.html */ "./src/app/renter/main/main.component.html"),
             styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/renter/main/main.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"],
-            _navigation_service__WEBPACK_IMPORTED_MODULE_4__["NavigationService"],
-            _uport_service__WEBPACK_IMPORTED_MODULE_5__["UPortService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"],
+            _uport_service__WEBPACK_IMPORTED_MODULE_4__["UPortService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], MainComponent);
     return MainComponent;
 }());
