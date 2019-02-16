@@ -14,14 +14,19 @@ export class UPortService {
 
     requestDisclosure() {
 
-        this.uport.requestDisclosure();
+        const reqObj = {
+            requested: ['name', 'country', 'image'],
+            notifications: true
+        };
+
+        this.uport.requestDisclosure(reqObj);
         this.uport.onResponse('disclosureReq').then(res => {
 
             const did = res.payload.did;
-            const verified = res.payload.verified;
+            const payload = res.payload;
 
             console.log('DID', did);
-            console.log('Verified', verified);
+            console.log('Payload', payload);
         });
     }
 

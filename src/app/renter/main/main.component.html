@@ -13,6 +13,7 @@
       <img src="assets/logo-small.svg" style="display: block;" height="50" alt="Jobocar">
     </a>
     <div class="my-2 my-lg-0">
+        {{uPortService.uport.state.name}}
       <button routerLink="/renter/settings" class="btn btn-link my-2 my-sm-0 text-success" type="submit">
         <fa-icon [icon]="settingsIcon" style="font-size: 30px;"></fa-icon>
       </button>

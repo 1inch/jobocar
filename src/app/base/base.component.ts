@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UPortService} from '../renter/main/uport.service';
 
 @Component({
   selector: 'app-base',

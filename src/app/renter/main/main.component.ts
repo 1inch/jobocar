@@ -24,7 +24,7 @@ export class MainComponent implements OnInit {
 
     ngOnInit() {
 
-        this.uPortService.requestDisclosure();
+        this.uPortService.isConnected() || this.uPortService.requestDisclosure();
     }
 
     goBack() {

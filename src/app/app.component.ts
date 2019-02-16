@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UPortService} from './renter/main/uport.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+    constructor(private uPortService: UPortService) {
+
+    }
 }
