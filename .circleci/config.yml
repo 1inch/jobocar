@@ -14,15 +14,15 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          - v2-dependencies-{{ checksum "package.json" }}
+          - v2-dependencies-
       - run:
           name: Install dependencies
-          command: npm install
+          command: yarn
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
 #      - run:
 #          name: Run tests
 #          command: npm test
@@ -42,7 +42,7 @@ jobs:
               git rm -rf .
               cd ..
 
-              npm run build
+              yarn run build
 
               cp -a dist/. out/.
 
