@@ -1,24 +1,31 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NavigationService} from '../main/navigation.service';
+import {faFilePdf} from '@fortawesome/free-solid-svg-icons';
+import {SettingsService} from './settings.service';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+    selector: 'app-settings',
+    templateUrl: './settings.component.html',
+    styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit, OnDestroy {
 
-  constructor(private navigationService: NavigationService) {
-  }
+    pdfIcon = faFilePdf;
 
-  ngOnInit() {
+    constructor(
+        private navigationService: NavigationService,
+        private settingsService: SettingsService
+    ) {
+    }
 
-    this.navigationService.showBackButton = true;
-  }
+    ngOnInit() {
 
-  ngOnDestroy(): void {
+        this.navigationService.showBackButton = true;
+    }
 
-    this.navigationService.showBackButton = false;
-  }
+    ngOnDestroy(): void {
 
+        this.navigationService.showBackButton = false;
+        this.settingsService.storeInLocalStorage();
+    }
 }

@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {AgmMarker, LatLngLiteral} from '@agm/core';
 
+import rand from 'locutus/php/math/rand';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -327,9 +329,9 @@ export class MapComponent implements OnInit {
               lng: 0.0,
               radius: (Math.floor(Math.random() * 10) + 1) * 1000
             },
-            price: 0.35,
-            minPurchase: 5,
-            fuel: 100,
+            price: rand(0.15 * 100, 0.35 * 100) / 100,
+            minPurchase: rand(5, 20),
+            fuel: rand(10, 400),
             lat: this.lat + (
               (i % 2 ? -1 : 1) *
               this.lat * 10000000 / 100 * (

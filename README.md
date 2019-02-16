@@ -7,6 +7,12 @@
 
 ## What it does
 
+## Solving problems
+
+- Sharing car availability
+- 90% of staying cars
+- Earn extra money  
+
 
 ## How we built it
 

@@ -44,6 +44,7 @@
     "ethereumjs-util": "^6.1.0",
     "html2canvas": "^1.0.0-alpha.12",
     "jspdf": "^1.5.3",
+    "locutus": "^2.0.10",
     "ngx-order-pipe": "^2.0.2",
     "ngx-vcard": "^1.1.4",
     "primeicons": "^1.0.0",
