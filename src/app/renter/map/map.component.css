@@ -8,8 +8,13 @@ agm-map {
 
 #info-window {
   background: white;
-  height: 200px;
+  height: 230px;
   width: 100%;
   position: fixed;
   bottom: 0;
+  padding: 20px;
+}
+
+#info-window img {
+  border-radius: 10px;
 }

@@ -296,8 +296,8 @@ export class MapComponent implements OnInit {
         for (let i = 0; i < 5; i++) {
 
           this.cars.push({
-            title: 'Car ' + i,
-            subTitle: 'Mercedes Benz E200',
+            title: 'S-N293E' + i,
+            subTitle: 'Mercedes Benz EQC',
             price: 0.35,
             minPurchase: 5,
             fuel: 100,

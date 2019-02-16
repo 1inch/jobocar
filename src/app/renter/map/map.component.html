@@ -12,7 +12,23 @@
 </agm-map>
 
 <div id="info-window" *ngIf="selectedCar">
-  <img src="assets/car.png" [title]="selectedCar.title">
-  <h2>{{selectedCar.title}}</h2>
-  <h3>{{selectedCar.subTitle}}</h3>
+  <div class="media">
+    <div class="mr-3">
+      <img src="assets/eq.jpg" [title]="selectedCar.title" height="100">
+      <p style="padding: 10px; font-size: 18px;">
+        $ {{selectedCar.price}} / H<br>
+        (min. $ {{selectedCar.minPurchase}})
+      </p>
+    </div>
+    <div class="media-body" style="font-size: 18px;">
+      <h5 class="mt-0" style="font-size: 24px;">{{selectedCar.title}}</h5>
+      {{selectedCar.subTitle}}
+      <hr>
+      Fuel for {{selectedCar.fuel}} km
+      <div style="padding-top: 10px;">
+        <button type="button" class="btn btn-primary btn-lg float-right ml-1">GO</button>
+        <button type="button" class="btn btn-warning btn-lg float-right">BOOK</button>
+      </div>
+    </div>
+  </div>
 </div>
