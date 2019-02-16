@@ -327,28 +327,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var uport_connect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! uport-connect */ "./node_modules/uport-connect/lib/index.js");
 /* harmony import */ var uport_connect__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(uport_connect__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 
 
 
+
+var NULL_STATE = {
+    did: null,
+    mnid: null,
+    address: null,
+    doc: null,
+    pushToken: null,
+    publicEncKey: null
+};
 var UPortService = /** @class */ (function () {
     function UPortService() {
         this.uport = new uport_connect__WEBPACK_IMPORTED_MODULE_2__["Connect"]('Jobocar', { network: 'mainnet' });
     }
     UPortService.prototype.requestDisclosure = function () {
-        var reqObj = {
-            requested: ['name', 'country', 'image'],
-            notifications: true
-        };
-        this.uport.requestDisclosure(reqObj);
-        this.uport.onResponse('disclosureReq').then(function (res) {
-            var did = res.payload.did;
-            var payload = res.payload;
-            console.log('DID', did);
-            console.log('Payload', payload);
+        var _this = this;
+        return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"](function (observer) {
+            var reqObj = {
+                requested: ['name', 'country', 'image', 'email'],
+                notifications: true
+            };
+            _this.uport.requestDisclosure(reqObj);
+            _this.uport.onResponse('disclosureReq').then(function (res) {
+                var did = res.payload.did;
+                var payload = res.payload;
+                console.log('DID', did);
+                console.log('Payload', payload);
+                observer.next(payload);
+                observer.complete();
+            });
         });
     };
     UPortService.prototype.isConnected = function () {
-        return this.uport.did || false;
+        if (this.uport.did) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    UPortService.prototype.logout = function () {
+        this.uport.setState(function (currentState) {
+            return NULL_STATE;
+        });
+        console.log(this.uport.state);
+        localStorage.removeItem('connectState');
     };
     UPortService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
