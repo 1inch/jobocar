@@ -47,4 +47,7 @@
 https://www.flaticon.com/free-icon/automobile_296194#term=car&page=1&position=52
 http://www.birdtheme.org/useful/v3tool.html
 
+E-Paper Display setup
+https://maker-tutorials.com/waveshare-three-color-e-paper-display-am-raspberry-pi-3-anschliessen-eink-driver-hat/
+
 ###### Created by Crypto Maniacs 2019
