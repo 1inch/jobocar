@@ -10,7 +10,7 @@
     "sc_test": "scripts/test.sh",
     "lint": "npm run lint:js && npm run lint:sol",
     "e2e": "ng e2e",
-    "postinstall": "node patch.js",
+    "postinstall": "node patch.js && cp parser.js node_modules/solidity-parser-sc/build/parser.js",
     "lint:fix": "npm run lint:js:fix",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint . --fix",
