@@ -20,7 +20,7 @@ contract AnyPaymentReceiver is Ownable {
         internal
         returns(uint256)
     {
-        uint256 previousBalance = (desiredToken == address(0)) ? address(this).balance : IERC20(desiredToken).balanceOf(address(this));
+        uint256 previousBalance = _balanceOf(desiredToken);
 
         // Receive payment
         if (paymentToken != address(0)) {
@@ -46,8 +46,15 @@ contract AnyPaymentReceiver is Ownable {
             );
         }
 
-        uint256 currentBalance = (desiredToken == address(0)) ? address(this).balance : IERC20(desiredToken).balanceOf(address(this));
+        uint256 currentBalance = _balanceOf(desiredToken);
         return currentBalance.sub(previousBalance);
+    }
+
+    function _balanceOf(address token) internal view returns(uint256) {
+        if (token == address(0)) {
+            return address(this).balance;
+        }
+        return IERC20(token).balanceOf(address(this));
     }
 
     function _returnRemainder(address payable renter, IERC20 token, uint256 remainder) internal {
