@@ -1,0 +1,12 @@
+<agm-map [fitBounds]="true" [latitude]="lat" [longitude]="lng" [styles]="styles">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+
+  <agm-marker
+    *ngFor="let car of cars"
+    [latitude]="car.lat"
+    [longitude]="car.lng"
+    [iconUrl]="car.icon"
+    [agmFitBounds]="true"
+    (markerClick)="markerClick($event, car)"
+  ></agm-marker>
+</agm-map>

@@ -7,8 +7,18 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NoContentComponent} from './no-content/no-content.component';
 import {PanelModule} from 'primeng/panel';
+import {RenterModule} from './renter/renter.module';
+import { BaseComponent } from './base/base.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    component: BaseComponent
+  },
+  {
+    path: 'renter',
+    loadChildren: './renter/renter.module#RenterModule'
+  },
   {
     path: '**',
     component: NoContentComponent
@@ -18,7 +28,8 @@ export const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NoContentComponent
+    NoContentComponent,
+    BaseComponent
   ],
   imports: [
     CommonModule,

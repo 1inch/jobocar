@@ -1,0 +1,7 @@
+agm-map {
+  min-height: 500px;
+  width: 100%;
+
+  position: fixed;
+  height: 100%;
+}
