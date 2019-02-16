@@ -352,13 +352,17 @@ var UPortService = /** @class */ (function () {
                 notifications: true
             };
             _this.uport.requestDisclosure(reqObj);
-            _this.uport.onResponse('disclosureReq').then(function (res) {
+            _this.uport.onResponse('disclosureReq')
+                .then(function (res) {
                 var did = res.payload.did;
                 var payload = res.payload;
                 console.log('DID', did);
                 console.log('Payload', payload);
                 observer.next(payload);
                 observer.complete();
+            })
+                .catch(function (e) {
+                alert('An error with uPort is occurred. Please try again.');
             });
         });
     };
