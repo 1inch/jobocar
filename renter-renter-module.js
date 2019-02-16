@@ -4972,7 +4972,7 @@ var MainComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position: fixed;\n  height: 100%;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVudGVyL21hcC9tYXAuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFpQjtFQUNqQixXQUFXOztFQUVYLGVBQWU7RUFDZixZQUFZO0FBQ2QiLCJmaWxlIjoic3JjL2FwcC9yZW50ZXIvbWFwL21hcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYWdtLW1hcCB7XG4gIG1pbi1oZWlnaHQ6IDUwMHB4O1xuICB3aWR0aDogMTAwJTtcblxuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGhlaWdodDogMTAwJTtcbn1cbiJdfQ== */"
+module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position: fixed;\n  height: 100%;\n}\n\n#info-window {\n  background: white;\n  height: 200px;\n  width: 100%;\n  position: fixed;\n  bottom: 0;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVudGVyL21hcC9tYXAuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFpQjtFQUNqQixXQUFXOztFQUVYLGVBQWU7RUFDZixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsYUFBYTtFQUNiLFdBQVc7RUFDWCxlQUFlO0VBQ2YsU0FBUztBQUNYIiwiZmlsZSI6InNyYy9hcHAvcmVudGVyL21hcC9tYXAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImFnbS1tYXAge1xuICBtaW4taGVpZ2h0OiA1MDBweDtcbiAgd2lkdGg6IDEwMCU7XG5cbiAgcG9zaXRpb246IGZpeGVkO1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbiNpbmZvLXdpbmRvdyB7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICBoZWlnaHQ6IDIwMHB4O1xuICB3aWR0aDogMTAwJTtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBib3R0b206IDA7XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -4983,7 +4983,7 @@ module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n</agm-map>\n"
+module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <img src=\"assets/car.png\" [title]=\"selectedCar.title\">\n  <h2>{{selectedCar.title}}</h2>\n  <h3>{{selectedCar.subTitle}}</h3>\n</div>\n"
 
 /***/ }),
 
@@ -5006,6 +5006,7 @@ var MapComponent = /** @class */ (function () {
         this.lat = 0.0;
         this.lng = 0.0;
         this.cars = [];
+        this.selectedCar = null;
         this.styles = [
             {
                 'featureType': 'all',
@@ -5280,6 +5281,7 @@ var MapComponent = /** @class */ (function () {
                 for (var i = 0; i < 5; i++) {
                     _this.cars.push({
                         title: 'Car ' + i,
+                        subTitle: 'Mercedes Benz E200',
                         price: 0.35,
                         minPurchase: 5,
                         fuel: 100,
@@ -5302,6 +5304,11 @@ var MapComponent = /** @class */ (function () {
     MapComponent.prototype.markerClick = function ($event, car) {
         console.log('Event', $event);
         console.log('Selected car:', car);
+        for (var i = 0; i < this.cars.length; i++) {
+            this.cars[i].icon = 'assets/car.png';
+        }
+        car.icon = 'assets/car-selected.png';
+        this.selectedCar = car;
     };
     MapComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
