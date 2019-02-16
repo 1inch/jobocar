@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
-import {AgmMarker} from '@agm/core';
+import {AgmMarker, LatLngLiteral} from '@agm/core';
 
 @Component({
   selector: 'app-map',
@@ -279,7 +279,31 @@ export class MapComponent implements OnInit {
     }
   ];
 
+  paths: Array<LatLngLiteral> = [
+    {lat: 48.784330, lng: 9.150545},
+    {lat: 48.835880, lng: 9.202730},
+    {lat: 48.862087, lng: 9.264528},
+    {lat: 48.853955, lng: 9.315340},
+    {lat: 48.829552, lng: 9.337312},
+    {lat: 48.805137, lng: 9.315340},
+    {lat: 48.791568, lng: 9.289247},
+    {lat: 48.781615, lng: 9.234315},
+    {lat: 48.777090, lng: 9.187624}
+  ];
+
   constructor() {
+  }
+
+  clicked(clickEvent) {
+    console.log(clickEvent);
+  }
+
+  styleFunc(feature) {
+    return ({
+      clickable: false,
+      fillColor: feature.getProperty('color'),
+      strokeWeight: 1
+    });
   }
 
   ngOnInit() {
