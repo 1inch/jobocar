@@ -2,28 +2,32 @@ import {Component, OnInit} from '@angular/core';
 import {faArrowLeft, faCog} from '@fortawesome/free-solid-svg-icons';
 import {Location} from '@angular/common';
 import {NavigationService} from './navigation.service';
+import {UPortService} from './uport.service';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+    selector: 'app-main',
+    templateUrl: './main.component.html',
+    styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
 
-  settingsIcon = faCog;
-  backIcon = faArrowLeft;
+    settingsIcon = faCog;
+    backIcon = faArrowLeft;
 
-  constructor(
-    private location: Location,
-    private navigationService: NavigationService
-  ) {
-  }
+    constructor(
+        private location: Location,
+        private navigationService: NavigationService,
+        private uPortService: UPortService,
+    ) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
 
-  goBack() {
-    this.location.back();
-  }
+        this.uPortService.requestDisclosure();
+    }
+
+    goBack() {
+        this.location.back();
+    }
 
 }

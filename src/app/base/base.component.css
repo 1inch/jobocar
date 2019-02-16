@@ -1,0 +1,22 @@
+#select-screen {
+    height: 100%;
+
+    background: white;
+    text-align: center;
+}
+
+#select-screen .row {
+    min-height: 100%;
+}
+
+
+#select-screen .row h2 {
+    padding-top: 20px;
+    font-size: 5rem;
+}
+
+@media (max-width: 767.98px) {
+    #select-screen .row h2 {
+        font-size: 2rem;
+    }
+}
