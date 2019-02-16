@@ -15017,7 +15017,7 @@ module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\" (mapClick)=\"mapClick($event)\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <div class=\"media\">\n    <div class=\"mr-3\">\n      <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n      <p style=\"padding: 10px; font-size: 18px;\">\n        $ {{selectedCar.price}} / H<br>\n        (min. $ {{selectedCar.minPurchase}})\n      </p>\n    </div>\n    <div class=\"media-body\" style=\"font-size: 18px;\">\n      <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n      {{selectedCar.subTitle}}\n      <hr>\n      Fuel for {{selectedCar.fuel}} km\n      <div style=\"padding-top: 10px;\">\n        <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n        <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\" (mapClick)=\"mapClick($event)\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n\n  <agm-polygon [paths]=\"paths\" strokeColor=\"#FF0000\" strokeOpacity=\"0.8\" strokeWeight=\"2\" fillColor=\"#0000FF\" fillOpacity=\"0.6\">\n  </agm-polygon>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <div class=\"media\">\n    <div class=\"mr-3\">\n      <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n      <p style=\"padding: 10px; font-size: 18px;\">\n        $ {{selectedCar.price}} / H<br>\n        (min. $ {{selectedCar.minPurchase}})\n      </p>\n    </div>\n    <div class=\"media-body\" style=\"font-size: 18px;\">\n      <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n      {{selectedCar.subTitle}}\n      <hr>\n      Fuel for {{selectedCar.fuel}} km\n      <div style=\"padding-top: 10px;\">\n        <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n        <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -15304,7 +15304,28 @@ var MapComponent = /** @class */ (function () {
                 ]
             }
         ];
+        this.paths = [
+            { lat: 48.784330, lng: 9.150545 },
+            { lat: 48.835880, lng: 9.202730 },
+            { lat: 48.862087, lng: 9.264528 },
+            { lat: 48.853955, lng: 9.315340 },
+            { lat: 48.829552, lng: 9.337312 },
+            { lat: 48.805137, lng: 9.315340 },
+            { lat: 48.791568, lng: 9.289247 },
+            { lat: 48.781615, lng: 9.234315 },
+            { lat: 48.777090, lng: 9.187624 }
+        ];
     }
+    MapComponent.prototype.clicked = function (clickEvent) {
+        console.log(clickEvent);
+    };
+    MapComponent.prototype.styleFunc = function (feature) {
+        return ({
+            clickable: false,
+            fillColor: feature.getProperty('color'),
+            strokeWeight: 1
+        });
+    };
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
         if (navigator.geolocation) {
