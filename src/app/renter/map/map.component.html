@@ -10,8 +10,21 @@
     (markerClick)="markerClick($event, car)"
   ></agm-marker>
 
-  <agm-polygon [paths]="paths" strokeColor="#FF0000" strokeOpacity="0.8" strokeWeight="2" fillColor="#0000FF" fillOpacity="0.6">
+  <agm-polygon *ngIf="0" [paths]="paths" strokeColor="#FF0000" strokeOpacity="0.8" strokeWeight="2" fillColor="#0000FF" fillOpacity="0.6">
   </agm-polygon>
+
+  <agm-circle
+    *ngIf="selectedCar"
+    [latitude]="selectedCar.goalDestination.lat"
+    [longitude]="selectedCar.goalDestination.lng"
+    [radius]="selectedCar.goalDestination.radius"
+    strokeColor="#008aff"
+    strokeOpacity="0.8"
+    strokeWeight="2"
+    fillColor="#d28500"
+    fillOpacity="0.6"
+  >
+  </agm-circle>
 </agm-map>
 
 <div id="info-window" *ngIf="selectedCar">

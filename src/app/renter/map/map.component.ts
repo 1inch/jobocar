@@ -319,9 +319,14 @@ export class MapComponent implements OnInit {
 
         for (let i = 0; i < 5; i++) {
 
-          this.cars.push({
+          const car = {
             title: 'S-N293E' + i,
             subTitle: 'Mercedes Benz EQC',
+            goalDestination: {
+              lat: 0.0,
+              lng: 0.0,
+              radius: (Math.floor(Math.random() * 10) + 1) * 1000
+            },
             price: 0.35,
             minPurchase: 5,
             fuel: 100,
@@ -340,7 +345,25 @@ export class MapComponent implements OnInit {
               / 10000000
             ),
             icon: 'assets/car.png'
-          });
+          };
+
+          car.goalDestination.lat = car.lat + (
+            (i % 2 ? -1 : 1) *
+            this.lat * 10000000 / 100 * (
+              Math.floor(Math.random() * 10) + 1
+            ) / 100
+            / 10000000
+          );
+
+          car.goalDestination.lng = car.lng + (
+            (i % 2 ? -1 : 1) *
+            this.lng * 10000000 / 100 * (
+              Math.floor(Math.random() * 10) + 1
+            ) / 100
+            / 10000000
+          );
+
+          this.cars.push(car);
         }
 
         // console.log(this.cars);
