@@ -4,4 +4,4 @@ set -x
 #npm install -g truffle
 #npm install -g ganache-cli
 #npm install
-npm install
+yarn
