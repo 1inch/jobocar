@@ -203,7 +203,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Jhc2UvYmFzZS5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "#select-screen {\n    height: 100%;\n\n    background: white;\n    text-align: center;\n}\n\n#select-screen .row {\n    min-height: 100%;\n}\n\n#select-screen .row h2 {\n    padding-top: 20px;\n    font-size: 5rem;\n}\n\n@media (max-width: 767.98px) {\n    #select-screen .row h2 {\n        font-size: 2rem;\n    }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYmFzZS9iYXNlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZOztJQUVaLGlCQUFpQjtJQUNqQixrQkFBa0I7QUFDdEI7O0FBRUE7SUFDSSxnQkFBZ0I7QUFDcEI7O0FBR0E7SUFDSSxpQkFBaUI7SUFDakIsZUFBZTtBQUNuQjs7QUFFQTtJQUNJO1FBQ0ksZUFBZTtJQUNuQjtBQUNKIiwiZmlsZSI6InNyYy9hcHAvYmFzZS9iYXNlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjc2VsZWN0LXNjcmVlbiB7XG4gICAgaGVpZ2h0OiAxMDAlO1xuXG4gICAgYmFja2dyb3VuZDogd2hpdGU7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4jc2VsZWN0LXNjcmVlbiAucm93IHtcbiAgICBtaW4taGVpZ2h0OiAxMDAlO1xufVxuXG5cbiNzZWxlY3Qtc2NyZWVuIC5yb3cgaDIge1xuICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgIGZvbnQtc2l6ZTogNXJlbTtcbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDc2Ny45OHB4KSB7XG4gICAgI3NlbGVjdC1zY3JlZW4gLnJvdyBoMiB7XG4gICAgICAgIGZvbnQtc2l6ZTogMnJlbTtcbiAgICB9XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -214,7 +214,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Base</h2>\n\n"
+module.exports = "<div class=\"container-fluid\" id=\"select-screen\">\n    <div class=\"row align-items-center\">\n        <div class=\"col\">\n            <img src=\"assets/logo-without-title-blue.svg\" routerLink=\"/renter\" style=\"width: 50%; cursor: pointer; outline: none;\">\n            <h2><strong style=\"color: #3E87BC;\">Rent</strong> a Car</h2>\n        </div>\n        <div class=\"col\" style=\"border-left: 3px dashed #51a946;\">\n            <img src=\"assets/logo-without-title.svg\" style=\"width: 50%; cursor: pointer; outline: none;\">\n            <h2><strong style=\"color: #50a845;\">Share</strong> my Car</h2>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
