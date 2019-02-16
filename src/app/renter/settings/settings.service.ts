@@ -1,9 +1,25 @@
-import {Injectable, OnDestroy, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
+import {UPortService} from '../main/uport.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SettingsService {
+
+    constructor(
+        private uPortService: UPortService
+    ) {
+        const settingsStore = localStorage.getItem('settingsStore');
+
+        if (settingsStore) {
+            this._store = JSON.parse(settingsStore);
+        }
+    }
+
+    private _store = {
+        paymentCurrency: 'DAI',
+        certCenter: 'lbbw'
+    };
 
     get store(): { paymentCurrency: string; certCenter: string } {
         return this._store;
@@ -14,21 +30,14 @@ export class SettingsService {
         this._store = value;
     }
 
-    private _store = {
-        paymentCurrency: 'DAI',
-        certCenter: 'lbbw'
-    };
-
-    constructor() {
-        const settingsStore = localStorage.getItem('settingsStore');
-
-        if (settingsStore) {
-            this._store = JSON.parse(settingsStore);
-        }
-    }
-
     storeInLocalStorage(): void {
 
         localStorage.setItem('settingsStore', JSON.stringify(this._store));
+    }
+
+    logout() {
+
+        localStorage.removeItem('settingsStore');
+        this.uPortService.logout();
     }
 }

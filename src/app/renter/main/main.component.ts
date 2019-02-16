@@ -4,6 +4,8 @@ import {NavigationService} from './navigation.service';
 import {UPortService} from './uport.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
+import gravatar from 'gravatar';
+
 @Component({
     selector: 'app-main',
     templateUrl: './main.component.html',
@@ -13,6 +15,7 @@ export class MainComponent implements OnInit {
 
     settingsIcon = faCog;
     backIcon = faArrowLeft;
+    gravatarUrl = '';
 
     constructor(
         private navigationService: NavigationService,
@@ -24,7 +27,15 @@ export class MainComponent implements OnInit {
 
     ngOnInit() {
 
-        this.uPortService.isConnected() || this.uPortService.requestDisclosure();
+        if (this.uPortService.isConnected()) {
+            this.gravatarUrl = gravatar.url(this.uPortService.uport.state.email);
+        } else {
+
+            this.uPortService.requestDisclosure()
+                .subscribe(state => {
+                    this.gravatarUrl = gravatar.url(state.email);
+                });
+        }
     }
 
     goBack() {

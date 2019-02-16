@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 export class SettingsComponent implements OnInit, OnDestroy {
 
     pdfIcon = faFilePdf;
+    storeState = true;
 
     constructor(
         private navigationService: NavigationService,
@@ -23,19 +24,20 @@ export class SettingsComponent implements OnInit, OnDestroy {
     ngOnInit() {
 
         this.navigationService.showBackButton = true;
+        this.storeState = true;
     }
 
     ngOnDestroy(): void {
 
         this.navigationService.showBackButton = false;
-        this.settingsService.storeInLocalStorage();
+
+        !this.storeState || this.settingsService.storeInLocalStorage();
     }
 
     logout() {
 
-        localStorage.removeItem('settingsStore');
-        localStorage.removeItem('connectState');
-
+        this.settingsService.logout();
         this.router.navigate(['/']);
+        this.storeState = false;
     }
 }

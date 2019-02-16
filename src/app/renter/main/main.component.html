@@ -1,23 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <button (click)="goBack()" [hidden]="!navigationService.showBackButton" class="btn btn-link my-2 my-sm-0 text-success" type="submit">
-    <fa-icon [icon]="backIcon" style="font-size: 30px;"></fa-icon>
-  </button>
+    <button (click)="goBack()" [hidden]="!navigationService.showBackButton"
+            class="btn btn-link my-2 my-sm-0 text-success" type="submit">
+        <fa-icon [icon]="backIcon" style="font-size: 30px;"></fa-icon>
+    </button>
 
-  <button [hidden]="navigationService.showBackButton" class="navbar-toggler text-success" style="display: block;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button [hidden]="navigationService.showBackButton" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" class="navbar-toggler text-success" data-target="#navbarSupportedContent"
+            data-toggle="collapse" style="display: block;" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse show navbar-collapse" style="display: flex!important;flex-basis: auto;" id="navbarSupportedContent">
-    <a class="ml-auto mr-auto">
-      <img src="assets/logo-small.svg" style="display: block;" height="50" alt="Jobocar">
-    </a>
-    <div class="my-2 my-lg-0">
-        {{uPortService.uport.state.name}}
-      <button routerLink="/renter/settings" class="btn btn-link my-2 my-sm-0 text-success" type="submit">
-        <fa-icon [icon]="settingsIcon" style="font-size: 30px;"></fa-icon>
-      </button>
+    <div class="collapse show navbar-collapse" id="navbarSupportedContent"
+         style="display: flex!important;flex-basis: auto;">
+        <a class="ml-auto mr-auto">
+            <img alt="Jobocar" height="50" src="assets/logo-small.svg" style="display: block;">
+        </a>
+        <div class="my-2 my-lg-0">
+            <img [src]="gravatarUrl" [hidden]="!uPortService.uport.state.email" width="32">
+            {{uPortService.uport.state.name}}
+            <button class="btn btn-link my-2 my-sm-0 text-success" routerLink="/renter/settings" type="submit">
+                <fa-icon [icon]="settingsIcon" style="font-size: 30px;"></fa-icon>
+            </button>
+        </div>
     </div>
-  </div>
 </nav>
 <router-outlet></router-outlet>
