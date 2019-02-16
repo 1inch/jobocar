@@ -1,12 +1,12 @@
 #select-screen {
     height: 100%;
 
-    background: white;
     text-align: center;
 }
 
 #select-screen .row {
     min-height: 100%;
+    background: white;
 }
 
 
@@ -15,8 +15,28 @@
     font-size: 5rem;
 }
 
+#select-screen .col-md-6:last-child {
+    border-left: 3px dashed #51a946;
+}
+
 @media (max-width: 767.98px) {
     #select-screen .row h2 {
         font-size: 2rem;
+    }
+
+    #select-screen .col-md-6:last-child {
+        border-left: 0;
+    }
+
+    #select-screen .col-md-6 {
+        border-bottom: 3px dashed #51a946;
+    }
+
+    #select-screen .row {
+        min-height: auto;
+    }
+
+    #select-screen .col-md-6 {
+        padding: 2rem;
     }
 }
