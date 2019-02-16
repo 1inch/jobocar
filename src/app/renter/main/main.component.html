@@ -1,1 +1,22 @@
-<h2>Renter Main</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <button (click)="goBack()" [hidden]="!navigationService.showBackButton" class="btn btn-link my-2 my-sm-0 text-success" type="submit">
+    <fa-icon [icon]="backIcon" style="font-size: 30px;"></fa-icon>
+  </button>
+
+  <button [hidden]="navigationService.showBackButton" class="navbar-toggler text-success" style="display: block;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse show navbar-collapse" style="display: flex!important;flex-basis: auto;" id="navbarSupportedContent">
+    <a class="ml-auto mr-auto">
+      <img src="assets/logo-small.svg" style="display: block;" height="50" alt="Jobocar">
+    </a>
+    <div class="my-2 my-lg-0">
+      <button routerLink="/renter/settings" class="btn btn-link my-2 my-sm-0 text-success" type="submit">
+        <fa-icon [icon]="settingsIcon" style="font-size: 30px;"></fa-icon>
+      </button>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

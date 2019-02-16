@@ -339,4 +339,13 @@ export class MapComponent implements OnInit {
     this.selectedCar = car;
   }
 
+  mapClick($event) {
+
+    this.selectedCar = null;
+    for (let i = 0; i < this.cars.length; i++) {
+      this.cars[i].icon = 'assets/car.png';
+    }
+
+  }
+
 }

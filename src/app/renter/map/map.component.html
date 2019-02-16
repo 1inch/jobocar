@@ -1,4 +1,4 @@
-<agm-map [fitBounds]="true" [latitude]="lat" [longitude]="lng" [styles]="styles">
+<agm-map [fitBounds]="true" [latitude]="lat" [longitude]="lng" [styles]="styles" (mapClick)="mapClick($event)">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 
   <agm-marker

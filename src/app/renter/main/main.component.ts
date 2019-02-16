@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {faArrowLeft, faCog} from '@fortawesome/free-solid-svg-icons';
+import {Location} from '@angular/common';
+import {NavigationService} from './navigation.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  settingsIcon = faCog;
+  backIcon = faArrowLeft;
+
+  constructor(
+    private location: Location,
+    private navigationService: NavigationService
+  ) {
+  }
 
   ngOnInit() {
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }

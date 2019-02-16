@@ -5,23 +5,36 @@ import {AgmCoreModule} from '@agm/core';
 import {MenubarModule} from 'primeng/menubar';
 import {MainComponent} from './main/main.component';
 import {RouterModule, Routes} from '@angular/router';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {SettingsComponent} from './settings/settings.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent
-  },
-  {
-    path: 'map',
-    component: MapComponent
+    component: MainComponent,
+    children: [
+      {
+        path: 'map',
+        component: MapComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
+      }
+    ]
   }
 ];
 
 @NgModule({
-  declarations: [MapComponent, MainComponent],
+  declarations: [
+    MapComponent,
+    MainComponent,
+    SettingsComponent
+  ],
   imports: [
     CommonModule,
     MenubarModule,
+    FontAwesomeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCMQs50MwDO5NamST3QgdkbS6mnYO-Z4GE'
     }),
