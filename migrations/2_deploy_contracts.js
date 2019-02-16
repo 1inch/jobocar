@@ -1,3 +1,5 @@
-module.exports = function(deployer) {
+const Car = artifacts.require('./Car.sol');
 
+module.exports = function (deployer) {
+    deployer.deploy(Car);
 };
