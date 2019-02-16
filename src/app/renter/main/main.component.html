@@ -25,4 +25,15 @@
         </div>
     </div>
 </nav>
-<router-outlet></router-outlet>
+
+<div class="container-fluid" [hidden]="!loading" style="height: 100%;">
+    <div class="row align-items-center" style="min-height: 100%">
+        <div class="col" style="text-align: center;">
+            <h2><strong>uPort.me</strong> Authentication! Please wait...</h2>
+        </div>
+    </div>
+</div>
+
+<div [hidden]="loading">
+    <router-outlet *ngIf="!loading"></router-outlet>
+</div>

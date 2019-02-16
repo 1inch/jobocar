@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
     settingsIcon = faCog;
     backIcon = faArrowLeft;
     gravatarUrl = '';
+    loading = true;
 
     constructor(
         private navigationService: NavigationService,
@@ -29,11 +30,13 @@ export class MainComponent implements OnInit {
 
         if (this.uPortService.isConnected()) {
             this.gravatarUrl = gravatar.url(this.uPortService.uport.state.email);
+            this.loading = false;
         } else {
 
             this.uPortService.requestDisclosure()
                 .subscribe(state => {
                     this.gravatarUrl = gravatar.url(state.email);
+                    this.loading = false;
                 });
         }
     }

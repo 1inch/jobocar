@@ -31,17 +31,21 @@ export class UPortService {
             };
 
             this.uport.requestDisclosure(reqObj);
-            this.uport.onResponse('disclosureReq').then(res => {
+            this.uport.onResponse('disclosureReq')
+                .then(res => {
 
-                const did = res.payload.did;
-                const payload = res.payload;
+                    const did = res.payload.did;
+                    const payload = res.payload;
 
-                console.log('DID', did);
-                console.log('Payload', payload);
+                    console.log('DID', did);
+                    console.log('Payload', payload);
 
-                observer.next(payload);
-                observer.complete();
-            });
+                    observer.next(payload);
+                    observer.complete();
+                })
+                .catch(e => {
+                    alert('An error with uPort is occurred. Please try again.');
+                });
         });
     }
 
@@ -55,7 +59,7 @@ export class UPortService {
     }
 
     logout() {
-        this.uport.setState(function(currentState) {
+        this.uport.setState(function (currentState) {
             return NULL_STATE;
         });
 
