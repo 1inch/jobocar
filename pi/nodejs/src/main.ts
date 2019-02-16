@@ -1,10 +1,8 @@
 import Web3 from 'web3';
-import Util from 'ethereumjs-util';
-import MerkleTree from 'merkle-tree';
 
 const privateKey = '0x';
 
-function xxx() {
+function init() {
     // const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
     // const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/'));
     // const web3 = new Web3(new Web3.providers.WebsocketProvider('ws://localhost:8546'));
@@ -15,6 +13,7 @@ function xxx() {
         console.log('privateKey should be of length 66.' + (privateKey.length === 64 ? ' Prepend with "0x".' : ''));
         return;
     }
+
     const account = web3.eth.accounts.privateKeyToAccount(privateKey);
     console.log('account = ' + account.address);
 
@@ -24,4 +23,4 @@ function xxx() {
     }
 }
 
-xxx();
+init();

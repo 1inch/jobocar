@@ -3,7 +3,7 @@
 
 import epd4in2b
 import time
-from PIL import Image,ImageDraw,ImageFont
+from PIL import Image
 import traceback
 
 try:

@@ -1,0 +1,16 @@
+{
+    "name": "qrcode-generator",
+    "version": "0.0.1",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc -w",
+        "prestart": "tsc",
+        "start": "node dist/main.js"
+    },
+    "dependencies": {
+        "ethereumjs-util": "^6.1.0",
+        "web3": "^1.0.0-beta.46"
+    }
+}
