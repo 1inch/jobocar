@@ -22,7 +22,7 @@ contract CertCenter is Ownable {
                 emit RenterRemoved(rentersToRemove[i]);
             }
         }
-        
+
         for (uint i = 0; i < rentersToAdd.length; i++) {
             if (!renters[rentersToAdd[i]]) {
                 renters[rentersToAdd[i]] = true;

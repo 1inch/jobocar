@@ -1,5 +1,5 @@
 const Car = artifacts.require('./Car.sol');
 
-module.exports = function (deployer) {
-    deployer.deploy(Car);
+module.exports = async function (deployer) {
+    deployer.deploy(Car, '0x0000000000000000000000000000000000000001');
 };

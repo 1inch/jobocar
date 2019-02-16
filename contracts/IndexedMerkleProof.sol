@@ -3,6 +3,11 @@ pragma solidity ^0.5.2;
 
 library IndexedMerkleProof {
     function verify(bytes memory proof, uint160 root, uint160 leaf, uint index) internal pure returns (bool) {
+        // Check if the computed hash (root) is equal to the provided root
+        return root == compute(proof, leaf, index);
+    }
+
+    function compute(bytes memory proof, uint160 leaf, uint index) internal pure returns (uint160) {
         uint160 computedHash = leaf;
 
         for (uint256 i = 0; i < proof.length; i++) {
@@ -21,6 +26,6 @@ library IndexedMerkleProof {
         }
 
         // Check if the computed hash (root) is equal to the provided root
-        return computedHash == root;
+        return computedHash;
     }
 }
