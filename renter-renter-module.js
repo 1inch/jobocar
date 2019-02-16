@@ -15017,7 +15017,7 @@ module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\" (mapClick)=\"mapClick($event)\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n\n  <agm-polygon [paths]=\"paths\" strokeColor=\"#FF0000\" strokeOpacity=\"0.8\" strokeWeight=\"2\" fillColor=\"#0000FF\" fillOpacity=\"0.6\">\n  </agm-polygon>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <div class=\"media\">\n    <div class=\"mr-3\">\n      <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n      <p style=\"padding: 10px; font-size: 18px;\">\n        $ {{selectedCar.price}} / H<br>\n        (min. $ {{selectedCar.minPurchase}})\n      </p>\n    </div>\n    <div class=\"media-body\" style=\"font-size: 18px;\">\n      <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n      {{selectedCar.subTitle}}\n      <hr>\n      Fuel for {{selectedCar.fuel}} km\n      <div style=\"padding-top: 10px;\">\n        <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n        <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\" (mapClick)=\"mapClick($event)\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n\n  <agm-polygon *ngIf=\"0\" [paths]=\"paths\" strokeColor=\"#FF0000\" strokeOpacity=\"0.8\" strokeWeight=\"2\" fillColor=\"#0000FF\" fillOpacity=\"0.6\">\n  </agm-polygon>\n\n  <agm-circle\n    *ngIf=\"selectedCar\"\n    [latitude]=\"selectedCar.goalDestination.lat\"\n    [longitude]=\"selectedCar.goalDestination.lng\"\n    [radius]=\"selectedCar.goalDestination.radius\"\n    strokeColor=\"#008aff\"\n    strokeOpacity=\"0.8\"\n    strokeWeight=\"2\"\n    fillColor=\"#d28500\"\n    fillOpacity=\"0.6\"\n  >\n  </agm-circle>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <div class=\"media\">\n    <div class=\"mr-3\">\n      <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n      <p style=\"padding: 10px; font-size: 18px;\">\n        $ {{selectedCar.price}} / H<br>\n        (min. $ {{selectedCar.minPurchase}})\n      </p>\n    </div>\n    <div class=\"media-body\" style=\"font-size: 18px;\">\n      <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n      {{selectedCar.subTitle}}\n      <hr>\n      Fuel for {{selectedCar.fuel}} km\n      <div style=\"padding-top: 10px;\">\n        <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n        <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -15334,9 +15334,14 @@ var MapComponent = /** @class */ (function () {
                 _this.lat = position.coords.latitude;
                 _this.lng = position.coords.longitude;
                 for (var i = 0; i < 5; i++) {
-                    _this.cars.push({
+                    var car = {
                         title: 'S-N293E' + i,
                         subTitle: 'Mercedes Benz EQC',
+                        goalDestination: {
+                            lat: 0.0,
+                            lng: 0.0,
+                            radius: (Math.floor(Math.random() * 10) + 1) * 1000
+                        },
                         price: 0.35,
                         minPurchase: 5,
                         fuel: 100,
@@ -15347,7 +15352,14 @@ var MapComponent = /** @class */ (function () {
                             _this.lat * 10000000 / 100 * (Math.floor(Math.random() * 10) + 1) / 100
                             / 10000000),
                         icon: 'assets/car.png'
-                    });
+                    };
+                    car.goalDestination.lat = car.lat + ((i % 2 ? -1 : 1) *
+                        _this.lat * 10000000 / 100 * (Math.floor(Math.random() * 10) + 1) / 100
+                        / 10000000);
+                    car.goalDestination.lng = car.lng + ((i % 2 ? -1 : 1) *
+                        _this.lng * 10000000 / 100 * (Math.floor(Math.random() * 10) + 1) / 100
+                        / 10000000);
+                    _this.cars.push(car);
                 }
                 // console.log(this.cars);
             });
