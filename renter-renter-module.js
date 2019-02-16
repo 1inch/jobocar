@@ -94202,7 +94202,7 @@ var routes = [
         component: _main_main_component__WEBPACK_IMPORTED_MODULE_6__["MainComponent"],
         children: [
             {
-                path: 'map',
+                path: '',
                 component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"]
             },
             {
