@@ -33,5 +33,6 @@
 
 ## Used dependencies
 
+https://www.flaticon.com/free-icon/automobile_296194#term=car&page=1&position=52
 
 ###### Created by Crypto Maniacs 2019
