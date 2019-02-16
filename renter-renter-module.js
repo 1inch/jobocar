@@ -4972,7 +4972,7 @@ var MainComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position: fixed;\n  height: 100%;\n}\n\n#info-window {\n  background: white;\n  height: 200px;\n  width: 100%;\n  position: fixed;\n  bottom: 0;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVudGVyL21hcC9tYXAuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFpQjtFQUNqQixXQUFXOztFQUVYLGVBQWU7RUFDZixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsYUFBYTtFQUNiLFdBQVc7RUFDWCxlQUFlO0VBQ2YsU0FBUztBQUNYIiwiZmlsZSI6InNyYy9hcHAvcmVudGVyL21hcC9tYXAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImFnbS1tYXAge1xuICBtaW4taGVpZ2h0OiA1MDBweDtcbiAgd2lkdGg6IDEwMCU7XG5cbiAgcG9zaXRpb246IGZpeGVkO1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbiNpbmZvLXdpbmRvdyB7XG4gIGJhY2tncm91bmQ6IHdoaXRlO1xuICBoZWlnaHQ6IDIwMHB4O1xuICB3aWR0aDogMTAwJTtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBib3R0b206IDA7XG59XG4iXX0= */"
+module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position: fixed;\n  height: 100%;\n}\n\n#info-window {\n  background: white;\n  height: 230px;\n  width: 100%;\n  position: fixed;\n  bottom: 0;\n  padding: 20px;\n}\n\n#info-window img {\n  border-radius: 10px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVudGVyL21hcC9tYXAuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFpQjtFQUNqQixXQUFXOztFQUVYLGVBQWU7RUFDZixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsYUFBYTtFQUNiLFdBQVc7RUFDWCxlQUFlO0VBQ2YsU0FBUztFQUNULGFBQWE7QUFDZjs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQiIsImZpbGUiOiJzcmMvYXBwL3JlbnRlci9tYXAvbWFwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhZ20tbWFwIHtcbiAgbWluLWhlaWdodDogNTAwcHg7XG4gIHdpZHRoOiAxMDAlO1xuXG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4jaW5mby13aW5kb3cge1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgaGVpZ2h0OiAyMzBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgYm90dG9tOiAwO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4jaW5mby13aW5kb3cgaW1nIHtcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -4983,7 +4983,7 @@ module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <img src=\"assets/car.png\" [title]=\"selectedCar.title\">\n  <h2>{{selectedCar.title}}</h2>\n  <h3>{{selectedCar.subTitle}}</h3>\n</div>\n"
+module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <div class=\"media\">\n    <div class=\"mr-3\">\n      <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n      <p style=\"padding: 10px; font-size: 18px;\">\n        $ {{selectedCar.price}} / H<br>\n        (min. $ {{selectedCar.minPurchase}})\n      </p>\n    </div>\n    <div class=\"media-body\" style=\"font-size: 18px;\">\n      <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n      {{selectedCar.subTitle}}\n      <hr>\n      Fuel for {{selectedCar.fuel}} km\n      <div style=\"padding-top: 10px;\">\n        <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n        <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -5280,8 +5280,8 @@ var MapComponent = /** @class */ (function () {
                 _this.lng = position.coords.longitude;
                 for (var i = 0; i < 5; i++) {
                     _this.cars.push({
-                        title: 'Car ' + i,
-                        subTitle: 'Mercedes Benz E200',
+                        title: 'S-N293E' + i,
+                        subTitle: 'Mercedes Benz EQC',
                         price: 0.35,
                         minPurchase: 5,
                         fuel: 100,
