@@ -323,7 +323,7 @@ const carContractABI = [{
                 Buffer.concat(merkleTree.getProof(i))
             ]).toString('base64');
 
-            return 'https://jobocar.com/' + i + '/' + compressed;
+            return 'https://jobocar.com/#/?index=' + i + '&proof=' + encodeURIComponent(compressed);
         }
     );
     console.log('urls = ', urls);
