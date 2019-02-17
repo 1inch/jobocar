@@ -1,4 +1,4 @@
-<agm-map (mapClick)="mapClick($event)" [fitBounds]="true" [latitude]="lat" [longitude]="lng" [styles]="styles">
+<agm-map (mapClick)="mapClick($event)" [latitude]="lat" [longitude]="lng" [styles]="styles" [zoom]="12">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 
     <agm-marker
@@ -34,18 +34,17 @@
         <div class="mr-3">
             <img src="assets/eq.jpg" [title]="selectedCar.title" height="100">
             <p style="padding: 10px; font-size: 18px;">
-                $ {{selectedCar.price}} / Min.<br>
-                (min. $ {{selectedCar.minPurchase}})
+                $ <input class="form-control" style="width: 70px; display: inline-block;" [(ngModel)]="settingsService.store.cars[selectedCar.id].price" type="text" placeholder="Price / Minute"> / Min.<br>
+                (min. $ <input class="form-control" style="width: 70px; display: inline-block;" [(ngModel)]="settingsService.store.cars[selectedCar.id].minPurchase" type="text" placeholder="Price / Minute">)
             </p>
         </div>
         <div class="media-body" style="font-size: 18px;">
-            <h5 class="mt-0" style="font-size: 24px;">{{selectedCar.title}}</h5>
+            <h5 class="mt-0" style="font-size: 24px;">{{selectedCar.title}} <span class="badge badge-warning">DRIVING</span></h5>
             {{selectedCar.subTitle}}
             <hr>
             Fuel for {{selectedCar.fuel}} km
             <div style="padding-top: 10px;">
-                <button type="button" class="btn btn-primary btn-lg float-right ml-1">GO</button>
-                <button type="button" class="btn btn-warning btn-lg float-right">BOOK</button>
+                <button type="button" class="btn btn-danger btn-lg float-right ml-1">CALL IT BACK</button>
             </div>
         </div>
     </div>

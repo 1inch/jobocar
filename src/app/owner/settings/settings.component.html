@@ -1,0 +1,36 @@
+<form>
+    <div class="form-group row">
+        <label for="paymentCurrency" class="col-sm-2 col-form-label">Payment currency</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="paymentCurrency" name="paymentCurrency" [(ngModel)]="settingsService.store.paymentCurrency">
+                <option value="DAI">DAI</option>
+                <option value="USDC">USDC</option>
+                <option value="TUSD">TUSD</option>
+                <option value="USDS">USDS</option>
+                <option value="WBTC">WBTC</option>
+                <option value="ETH">ETH</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="certCenter" class="col-sm-2 col-form-label">Certification Center</label>
+        <div class="col-sm-10">
+            <select class="form-control" id="certCenter" name="certCenter" [(ngModel)]="settingsService.store.certCenter">
+                <option value="lbbw">LB☰BW Certification Institute</option>
+                <option value="daimler">Daimler Bank Certification Center</option>
+                <option value="columbia">Columbia Certified Inc.</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Terms of Use</label>
+        <div class="col-sm-10">
+            Website Terms of Use: <fa-icon [icon]="pdfIcon" style="font-size: 30px; cursor: pointer;"></fa-icon><br>
+            Trip Terms and Conditions: <fa-icon [icon]="pdfIcon" style="font-size: 30px; cursor: pointer;"></fa-icon><br>
+            Trip Privacy Policy: <fa-icon [icon]="pdfIcon" style="font-size: 30px; cursor: pointer;"></fa-icon><br>
+        </div>
+    </div>
+    <div class="form-group row">
+        <button type="button" (click)="logout()" class="btn btn-danger btn-lg">Logout</button>
+    </div>
+</form>

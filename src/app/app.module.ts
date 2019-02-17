@@ -23,6 +23,10 @@ export const routes: Routes = [
         loadChildren: './car/car.module#CarModule'
     },
     {
+        path: 'owner',
+        loadChildren: './owner/owner.module#OwnerModule'
+    },
+    {
         path: '**',
         component: NoContentComponent
     },
