@@ -12,7 +12,10 @@
     "dependencies": {
         "ethereumjs-util": "^6.1.0",
         "node-fetch": "^2.3.0",
+        "node-gd": "^1.5.4",
+        "path": "^0.12.7",
         "qrcode": "^1.3.3",
+        "qrcode-logo": "^1.1.8",
         "web3": "^1.0.0-beta.46"
     }
 }
