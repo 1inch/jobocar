@@ -75,7 +75,7 @@ var MainComponent = /** @class */ (function () {
             var scope = _this;
             setTimeout(function () {
                 scope.router.navigate(['/renter']);
-            }, 1000);
+            }, 500);
         });
         this.navigationService.showBackButton = true;
         if (this.uPortService.isConnected()) {

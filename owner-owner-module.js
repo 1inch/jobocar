@@ -63,6 +63,12 @@ var MainComponent = /** @class */ (function () {
     }
     MainComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.route.queryParams.subscribe(function (params) {
+            var scope = _this;
+            setTimeout(function () {
+                scope.router.navigate(['/owner']);
+            }, 500);
+        });
         this.navigationService.showBackButton = true;
         if (this.uPortService.isConnected()) {
             this.gravatarUrl = gravatar__WEBPACK_IMPORTED_MODULE_7___default.a.url(this.uPortService.uport.state.email);
