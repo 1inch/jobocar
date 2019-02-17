@@ -24,7 +24,7 @@
 
 ## What we learned
 
-## What's next for VIC.card
+## What's next for Jobocar
 
 
 ## Repo
