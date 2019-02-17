@@ -319,7 +319,7 @@ const carContractABI = [{
         (k, i) => {
 
             const compressed = Buffer.concat([
-                Buffer.from(privateKeys[i].privateKey, 'base64'),
+                Buffer.from(privateKeys[i].privateKey.substr(2), 'hex'),
                 Buffer.concat(merkleTree.getProof(i))
             ]).toString('base64');
 
