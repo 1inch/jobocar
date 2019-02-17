@@ -1,50 +1,52 @@
-<agm-map [fitBounds]="true" [latitude]="lat" [longitude]="lng" [styles]="styles" (mapClick)="mapClick($event)">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map (mapClick)="mapClick($event)" [fitBounds]="true" [latitude]="lat" [longitude]="lng" [styles]="styles">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 
-  <agm-marker
-    *ngFor="let car of cars"
-    [latitude]="car.lat"
-    [longitude]="car.lng"
-    [iconUrl]="car.icon"
-    [agmFitBounds]="true"
-    (markerClick)="markerClick($event, car)"
-  ></agm-marker>
+    <agm-marker
+        (markerClick)="markerClick($event, car)"
+        *ngFor="let car of cars"
+        [agmFitBounds]="true"
+        [iconUrl]="car.icon"
+        [latitude]="car.lat"
+        [longitude]="car.lng"
+    ></agm-marker>
 
-  <agm-polygon *ngIf="0" [paths]="paths" strokeColor="#FF0000" strokeOpacity="0.8" strokeWeight="2" fillColor="#0000FF" fillOpacity="0.6">
-  </agm-polygon>
+    <agm-polygon *ngIf="0" [paths]="paths" fillColor="#0000FF" fillOpacity="0.6" strokeColor="#FF0000"
+                 strokeOpacity="0.8" strokeWeight="2">
+    </agm-polygon>
 
-  <agm-circle
-    *ngIf="selectedCar"
-    [latitude]="selectedCar.goalDestination.lat"
-    [longitude]="selectedCar.goalDestination.lng"
-    [radius]="selectedCar.goalDestination.radius"
-    strokeColor="#008aff"
-    strokeOpacity="0.8"
-    strokeWeight="2"
-    fillColor="#d28500"
-    fillOpacity="0.6"
-  >
-  </agm-circle>
+    <agm-circle
+        *ngIf="selectedCar"
+        [latitude]="selectedCar.goalDestination.lat"
+        [longitude]="selectedCar.goalDestination.lng"
+        [radius]="selectedCar.goalDestination.radius"
+        [visible]="selectedCar"
+        fillColor="#d28500"
+        fillOpacity="0.2"
+        strokeColor="#008aff"
+        strokeOpacity="0.4"
+        strokeWeight="2"
+    >
+    </agm-circle>
 </agm-map>
 
 <div id="info-window" *ngIf="selectedCar">
-  <div class="media">
-    <div class="mr-3">
-      <img src="assets/eq.jpg" [title]="selectedCar.title" height="100">
-      <p style="padding: 10px; font-size: 18px;">
-        $ {{selectedCar.price}} / Min.<br>
-        (min. $ {{selectedCar.minPurchase}})
-      </p>
+    <div class="media">
+        <div class="mr-3">
+            <img src="assets/eq.jpg" [title]="selectedCar.title" height="100">
+            <p style="padding: 10px; font-size: 18px;">
+                $ {{selectedCar.price}} / Min.<br>
+                (min. $ {{selectedCar.minPurchase}})
+            </p>
+        </div>
+        <div class="media-body" style="font-size: 18px;">
+            <h5 class="mt-0" style="font-size: 24px;">{{selectedCar.title}}</h5>
+            {{selectedCar.subTitle}}
+            <hr>
+            Fuel for {{selectedCar.fuel}} km
+            <div style="padding-top: 10px;">
+                <button type="button" class="btn btn-primary btn-lg float-right ml-1">GO</button>
+                <button type="button" class="btn btn-warning btn-lg float-right">BOOK</button>
+            </div>
+        </div>
     </div>
-    <div class="media-body" style="font-size: 18px;">
-      <h5 class="mt-0" style="font-size: 24px;">{{selectedCar.title}}</h5>
-      {{selectedCar.subTitle}}
-      <hr>
-      Fuel for {{selectedCar.fuel}} km
-      <div style="padding-top: 10px;">
-        <button type="button" class="btn btn-primary btn-lg float-right ml-1">GO</button>
-        <button type="button" class="btn btn-warning btn-lg float-right">BOOK</button>
-      </div>
-    </div>
-  </div>
 </div>

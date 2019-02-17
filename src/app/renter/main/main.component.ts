@@ -30,6 +30,8 @@ export class MainComponent implements OnInit {
 
     ngOnInit() {
 
+        this.navigationService.showBackButton = true;
+
         if (this.uPortService.isConnected()) {
             this.gravatarUrl = gravatar.url(this.uPortService.uport.state.email);
             this.loading = false;
@@ -50,6 +52,6 @@ export class MainComponent implements OnInit {
     }
 
     goBack() {
-        this.router.navigate(['/renter']);
+        this.router.navigate(['../']);
     }
 }

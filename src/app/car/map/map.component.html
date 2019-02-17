@@ -16,22 +16,22 @@
     [styles]="styles"
     usePanning="true">
 
-    <agm-marker [iconUrl]="iconUrl" [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-direction [markerOptions]="markerOptions" [origin]="{lat: lat, lng: lng}" [destination]="destination">
+    </agm-direction>
 
     <agm-circle
         [latitude]="goalDestination.lat"
         [longitude]="goalDestination.lng"
         [radius]="goalDestination.radius"
         fillColor="#d28500"
-        fillOpacity="0.6"
+        fillOpacity="0.2"
         strokeColor="#008aff"
-        strokeOpacity="0.8"
+        strokeOpacity="0.4"
         strokeWeight="2"
+        [visible]="visibleCircle"
     >
     </agm-circle>
 
-    <agm-direction visible="true" [origin]="{lat: lat, lng: lng}" [destination]="destination">
-    </agm-direction>
 </agm-map>
 
 <div id="info-window">

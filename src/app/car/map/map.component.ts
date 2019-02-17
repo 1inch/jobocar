@@ -291,6 +291,14 @@ export class MapComponent implements OnInit {
         lng: 0.0
     };
 
+    visibleCircle = false;
+
+    markerOptions = {
+        origin: {
+            icon: 'assets/car.png'
+        }
+    };
+
     constructor() {
     }
 
@@ -325,6 +333,11 @@ export class MapComponent implements OnInit {
 
                 this.destination.lat = this.goalDestination.lat;
                 this.destination.lng = this.goalDestination.lng;
+
+                const scope = this;
+                setTimeout(function() {
+                    scope.visibleCircle = true;
+                }, 1500);
 
             });
         } else {
