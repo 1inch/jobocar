@@ -55,22 +55,24 @@ yarn start
 - We build a lot of UI component to deliver better understanding of our idea
 - We solved the deployment problem of a picture on an E-Paper display
 - Invent new crypto graphic scheme to create secure expirable QR codes
+- Sleeping only 5 hours over more then 40 hours of staying awake 
 
 ## What we learned
 
 - How to working with Raspberry Pi, LTE modem and E-Paper display
 - How to work with Google Maps
 - How to integrate uPort.me
-- Sleeping only 5 hours over more then 40 hours
-- 
 
 ## What's next for Jobocar
 
+We are open for offerings.
 
 ## Repo
 
+https://github.com/CryptoManiacsZone/jobocar
 
 ## Slides
+
 
 
 # Install
