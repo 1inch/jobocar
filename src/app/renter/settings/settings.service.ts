@@ -18,14 +18,15 @@ export class SettingsService {
 
     private _store = {
         paymentCurrency: 'DAI',
-        certCenter: 'lbbw'
+        certCenter: 'lbbw',
+        selectedCar: {}
     };
 
-    get store(): { paymentCurrency: string; certCenter: string } {
+    get store(): { paymentCurrency: string; certCenter: string, selectedCar: any } {
         return this._store;
     }
 
-    set store(value: { paymentCurrency: string; certCenter: string }) {
+    set store(value: { paymentCurrency: string; certCenter: string , selectedCar: any}) {
 
         this._store = value;
     }

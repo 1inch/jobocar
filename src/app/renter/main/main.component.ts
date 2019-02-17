@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 
 import gravatar from 'gravatar';
+import {SettingsService} from '../settings/settings.service';
 
 @Component({
     selector: 'app-main',
@@ -23,6 +24,7 @@ export class MainComponent implements OnInit {
         private location: Location,
         private navigationService: NavigationService,
         private uPortService: UPortService,
+        private settingsService: SettingsService,
         private route: ActivatedRoute,
         private router: Router
     ) {
@@ -32,6 +34,16 @@ export class MainComponent implements OnInit {
 
         this.route.queryParams.subscribe(params => {
             console.log('Query Params', params);
+
+            if (params['index']) {
+                this.settingsService.store.selectedCar = params;
+                console.log('Selected Car', params);
+            }
+
+            const scope = this;
+            setTimeout(function() {
+                scope.router.navigate(['/renter']);
+            }, 1000);
         });
 
         this.navigationService.showBackButton = true;
