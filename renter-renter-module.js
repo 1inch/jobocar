@@ -89979,6 +89979,7 @@ var MainComponent = /** @class */ (function () {
     }
     MainComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.navigationService.showBackButton = true;
         if (this.uPortService.isConnected()) {
             this.gravatarUrl = gravatar__WEBPACK_IMPORTED_MODULE_7___default.a.url(this.uPortService.uport.state.email);
             this.loading = false;
@@ -89995,7 +89996,7 @@ var MainComponent = /** @class */ (function () {
         }
     };
     MainComponent.prototype.goBack = function () {
-        this.router.navigate(['/renter']);
+        this.router.navigate(['../']);
     };
     MainComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -90146,7 +90147,7 @@ module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\" (mapClick)=\"mapClick($event)\">\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n  <agm-marker\n    *ngFor=\"let car of cars\"\n    [latitude]=\"car.lat\"\n    [longitude]=\"car.lng\"\n    [iconUrl]=\"car.icon\"\n    [agmFitBounds]=\"true\"\n    (markerClick)=\"markerClick($event, car)\"\n  ></agm-marker>\n\n  <agm-polygon *ngIf=\"0\" [paths]=\"paths\" strokeColor=\"#FF0000\" strokeOpacity=\"0.8\" strokeWeight=\"2\" fillColor=\"#0000FF\" fillOpacity=\"0.6\">\n  </agm-polygon>\n\n  <agm-circle\n    *ngIf=\"selectedCar\"\n    [latitude]=\"selectedCar.goalDestination.lat\"\n    [longitude]=\"selectedCar.goalDestination.lng\"\n    [radius]=\"selectedCar.goalDestination.radius\"\n    strokeColor=\"#008aff\"\n    strokeOpacity=\"0.8\"\n    strokeWeight=\"2\"\n    fillColor=\"#d28500\"\n    fillOpacity=\"0.6\"\n  >\n  </agm-circle>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n  <div class=\"media\">\n    <div class=\"mr-3\">\n      <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n      <p style=\"padding: 10px; font-size: 18px;\">\n        $ {{selectedCar.price}} / Min.<br>\n        (min. $ {{selectedCar.minPurchase}})\n      </p>\n    </div>\n    <div class=\"media-body\" style=\"font-size: 18px;\">\n      <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n      {{selectedCar.subTitle}}\n      <hr>\n      Fuel for {{selectedCar.fuel}} km\n      <div style=\"padding-top: 10px;\">\n        <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n        <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<agm-map (mapClick)=\"mapClick($event)\" [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n    <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n    <agm-marker\n        (markerClick)=\"markerClick($event, car)\"\n        *ngFor=\"let car of cars\"\n        [agmFitBounds]=\"true\"\n        [iconUrl]=\"car.icon\"\n        [latitude]=\"car.lat\"\n        [longitude]=\"car.lng\"\n    ></agm-marker>\n\n    <agm-polygon *ngIf=\"0\" [paths]=\"paths\" fillColor=\"#0000FF\" fillOpacity=\"0.6\" strokeColor=\"#FF0000\"\n                 strokeOpacity=\"0.8\" strokeWeight=\"2\">\n    </agm-polygon>\n\n    <agm-circle\n        *ngIf=\"selectedCar\"\n        [latitude]=\"selectedCar.goalDestination.lat\"\n        [longitude]=\"selectedCar.goalDestination.lng\"\n        [radius]=\"selectedCar.goalDestination.radius\"\n        [visible]=\"selectedCar\"\n        fillColor=\"#d28500\"\n        fillOpacity=\"0.2\"\n        strokeColor=\"#008aff\"\n        strokeOpacity=\"0.4\"\n        strokeWeight=\"2\"\n    >\n    </agm-circle>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n    <div class=\"media\">\n        <div class=\"mr-3\">\n            <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n            <p style=\"padding: 10px; font-size: 18px;\">\n                $ {{selectedCar.price}} / Min.<br>\n                (min. $ {{selectedCar.minPurchase}})\n            </p>\n        </div>\n        <div class=\"media-body\" style=\"font-size: 18px;\">\n            <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n            {{selectedCar.subTitle}}\n            <hr>\n            Fuel for {{selectedCar.fuel}} km\n            <div style=\"padding-top: 10px;\">\n                <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n                <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 

@@ -583,7 +583,7 @@ module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <div class=\"container\">\n        <form class=\"row\" style=\"width: 100%; text-align: center;\">\n            <input aria-label=\"Search\" class=\"form-control mr-sm-2 col-6 ml-auto\" placeholder=\"Destination\"\n                   type=\"search\">\n            <button class=\"btn btn-outline-success my-2 my-sm-0 mr-auto\" type=\"submit\">Start Navigation</button>\n        </form>\n    </div>\n</nav>\n\n<agm-map\n    (mapClick)=\"mapClick($event)\"\n    [zoom]=\"zoom\"\n    [latitude]=\"lat\"\n    [longitude]=\"lng\"\n    [styles]=\"styles\"\n    usePanning=\"true\">\n\n    <agm-marker [iconUrl]=\"iconUrl\" [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n    <agm-circle\n        [latitude]=\"goalDestination.lat\"\n        [longitude]=\"goalDestination.lng\"\n        [radius]=\"goalDestination.radius\"\n        fillColor=\"#d28500\"\n        fillOpacity=\"0.6\"\n        strokeColor=\"#008aff\"\n        strokeOpacity=\"0.8\"\n        strokeWeight=\"2\"\n    >\n    </agm-circle>\n\n    <agm-direction visible=\"true\" [origin]=\"{lat: lat, lng: lng}\" [destination]=\"destination\">\n    </agm-direction>\n</agm-map>\n\n<div id=\"info-window\">\n    <div class=\"float-right\">\n        <button type=\"button\" class=\"btn btn-danger btn-lg float-right ml-1\">DROP</button>\n        <button type=\"button\" class=\"btn btn-success btn-lg float-right\">TOP UP</button>\n    </div>\n    <h5 class=\"mt-0\" style=\"font-size: 24px;\">Balance: $ 95, 30 min.</h5>\n</div>\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n    <div class=\"container\">\n        <form class=\"row\" style=\"width: 100%; text-align: center;\">\n            <input aria-label=\"Search\" class=\"form-control mr-sm-2 col-6 ml-auto\" placeholder=\"Destination\"\n                   type=\"search\">\n            <button class=\"btn btn-outline-success my-2 my-sm-0 mr-auto\" type=\"submit\">Start Navigation</button>\n        </form>\n    </div>\n</nav>\n\n<agm-map\n    (mapClick)=\"mapClick($event)\"\n    [zoom]=\"zoom\"\n    [latitude]=\"lat\"\n    [longitude]=\"lng\"\n    [styles]=\"styles\"\n    usePanning=\"true\">\n\n    <agm-direction [markerOptions]=\"markerOptions\" [origin]=\"{lat: lat, lng: lng}\" [destination]=\"destination\">\n    </agm-direction>\n\n    <agm-circle\n        [latitude]=\"goalDestination.lat\"\n        [longitude]=\"goalDestination.lng\"\n        [radius]=\"goalDestination.radius\"\n        fillColor=\"#d28500\"\n        fillOpacity=\"0.2\"\n        strokeColor=\"#008aff\"\n        strokeOpacity=\"0.4\"\n        strokeWeight=\"2\"\n        [visible]=\"visibleCircle\"\n    >\n    </agm-circle>\n\n</agm-map>\n\n<div id=\"info-window\">\n    <div class=\"float-right\">\n        <button type=\"button\" class=\"btn btn-danger btn-lg float-right ml-1\">DROP</button>\n        <button type=\"button\" class=\"btn btn-success btn-lg float-right\">TOP UP</button>\n    </div>\n    <h5 class=\"mt-0\" style=\"font-size: 24px;\">Balance: $ 95, 30 min.</h5>\n</div>\n"
 
 /***/ }),
 
@@ -882,6 +882,12 @@ var MapComponent = /** @class */ (function () {
             lat: 0.0,
             lng: 0.0
         };
+        this.visibleCircle = false;
+        this.markerOptions = {
+            origin: {
+                icon: 'assets/car.png'
+            }
+        };
     }
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -899,6 +905,10 @@ var MapComponent = /** @class */ (function () {
                     / 10000000);
                 _this.destination.lat = _this.goalDestination.lat;
                 _this.destination.lng = _this.goalDestination.lng;
+                var scope = _this;
+                setTimeout(function () {
+                    scope.visibleCircle = true;
+                }, 1500);
             });
         }
         else {
