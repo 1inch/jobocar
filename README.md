@@ -3,15 +3,23 @@
 [![Build Status](https://travis-ci.org/CryptoManiacsZone/jobocar.svg?branch=master)](https://travis-ci.org/CryptoManiacsZone/jobocar)
 [![Coverage Status](https://coveralls.io/repos/github/CryptoManiacsZone/jobocar/badge.svg?branch=master)](https://coveralls.io/github/CryptoManiacsZone/jobocar?branch=master)
 
+Try it out: https://jobocar.com
+
 ## Inspiration
+
+To have decentralized peer to peer car sharing.    
 
 ## What it does
 
+Offers to rent a car from someone who offers his own for money like a normal car sharing service. Also offers to share 
+own private car for any crypto currency based on Ethereum Network. 
+
+
 ## Solving problems
 
-- Sharing car availability
-- 90% of staying cars
+- Sharing car availability (95% of staying cars)
 - Earn extra money  
+- First step to self driving sharing cars
 
 
 ## How we built it
@@ -20,6 +28,7 @@ Angular for the frontend UI ov renter, car owner and the vehicle device.
 Smart Contracts written in Solidity and deployed on Ethereum blockchain for the backend implementation. 
 Python for updating E-Paper display.
 Raspberry Pi with LTE modem, GPS tracker, RFID reader, 4k camera and a 15" touchscreen for vehicle hardware kit.
+Continues deployment with Circle CI and Github Pages.
 
 
 ## Challenges we ran into
@@ -56,6 +65,7 @@ yarn start
 - We solved the deployment problem of a picture on an E-Paper display
 - Invent new crypto graphic scheme to create secure expirable QR codes
 - Sleeping only 5 hours over more then 40 hours of staying awake 
+- Integrated token swam with kyber.network
 
 ## What we learned
 
