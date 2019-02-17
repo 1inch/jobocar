@@ -341,12 +341,18 @@ const carContractABI = [{
                     }
                 });
 
+                console.log('Start');
+
                 await exec('convert ' + path.resolve(__dirname + '/../distqrcode.png') + ' -resize 400x300 -background White -gravity center -extent 400x300 ' + path.resolve(__dirname + '/../distqrcode2.png'));
                 await exec('convert ' + path.resolve(__dirname + '/../distqrcode2.png') + ' -colors 2 +dither -type bilevel ' + path.resolve(__dirname + '/../../qr/4in2b-b.bmp'));
 
-                const {stdout, stderr} = await exec('pushd ../qr && python main.py');
-                console.log('stdout:', stdout);
-                console.log('stderr:', stderr);
+                try {
+                    const {stdout, stderr} = await exec('pushd ../qr && python main.py');
+                    console.log('stdout:', stdout);
+                    console.log('stderr:', stderr);
+                } catch (e) {
+                    console.log('Error:', e);
+                }
 
                 setTimeout(done, 2 * 60 * 1000);
 
