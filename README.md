@@ -7,7 +7,7 @@ Try it out: https://jobocar.com
 
 ## Inspiration
 
-To have decentralized peer to peer car sharing.    
+To have decentralized peer to peer car sharing with any crypto currency payments based on Ethereum Network.    
 
 ## What it does
 
