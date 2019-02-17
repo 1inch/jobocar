@@ -347,7 +347,7 @@ const carContractABI = [{
                 await exec('convert ' + path.resolve(__dirname + '/../distqrcode2.png') + ' -colors 2 +dither -type bilevel ' + path.resolve(__dirname + '/../../qr/4in2b-b.bmp'));
 
                 try {
-                    const {stdout, stderr} = await exec('pushd ../qr && python main.py');
+                    const {stdout, stderr} = await exec('cd ../qr && python main.py');
                     console.log('stdout:', stdout);
                     console.log('stderr:', stderr);
                 } catch (e) {
