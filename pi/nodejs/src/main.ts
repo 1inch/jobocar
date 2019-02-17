@@ -38,11 +38,11 @@ const carContractABI = [{"constant":true,"inputs":[],"name":"vehicle","outputs":
 
     // Sumbit root to smart contract
 
-    const carContract = new web3.eth.Contract(carContractArtifacts, carContractAddress);
+    // const carContract = new web3.eth.Contract(carContractArtifacts, carContractAddress);
 
-    console.log('Root', merkleTree.getHexRoot());
+    // console.log('Root', merkleTree.getHexRoot());
 
-    const gasPrice = (await fetch('gasprice.poa.network')).json().fast;
+    // const gasPrice = (await fetch('gasprice.poa.network')).json().fast;
 
     // const receipt = await carContract.methods
     //   .addExpiringCodes(merkleTree.getHexRoot(), [])
@@ -54,14 +54,14 @@ const carContractABI = [{"constant":true,"inputs":[],"name":"vehicle","outputs":
     // Create URLs
 
     const urls = privateKeys.map(
-        (k,i) => 'https://jobocar.com/' + privateKeys[i] + '/' + i + '/' + merkleTree.getHexProof(i)
+        (k,i) => 'https://jobocar.com/' + privateKeys[i].privateKey + '/' + i + '/' + merkleTree.getHexProof(i).reduce((a, b) => a + b.substr(2))
     );
     console.log('urls = ', urls);
 
     // Create QR codes
 
     const qrs = await Promise.all(urls.map(QRCode.toDataURL));
-    console.log('qrs = ', qrs);
+    //console.log('qrs = ', qrs);
 
     //TODO:
     // 1. get receipt time and make a loop
