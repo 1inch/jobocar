@@ -343,7 +343,7 @@ const carContractABI = [{
                     logo: logoBuffer,
                     logoBorder: {
                         width: 4,
-                        color: 0x000000,
+                        color: 0xffffff,
                     }
                 });
 
