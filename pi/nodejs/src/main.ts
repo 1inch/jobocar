@@ -11,7 +11,7 @@ const exec = util.promisify(require('child_process').exec);
 
 const numberOfPrivateKeysInTree = 32;
 const durationOfPrivateKeyInTreeInSeconds = 120;
-const privateKey = '0x';
+const privateKey = '0xe065f5429f8c9c9e15c4ab98a829f628371eefe81806e198a98c7fe7af059575';
 const carContractAddress = '0x';
 const carContractArtifacts = require('../Car.json');
 const carContractABI = [{
