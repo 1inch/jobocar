@@ -1,4 +1,4 @@
-## Jobocar
+## Jobocar - The Car Sharing Revolution
 
 [![Build Status](https://travis-ci.org/CryptoManiacsZone/jobocar.svg?branch=master)](https://travis-ci.org/CryptoManiacsZone/jobocar)
 [![Coverage Status](https://coveralls.io/repos/github/CryptoManiacsZone/jobocar/badge.svg?branch=master)](https://coveralls.io/github/CryptoManiacsZone/jobocar?branch=master)
