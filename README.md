@@ -24,13 +24,18 @@ Raspberry Pi with LTE modem, GPS tracker, RFID reader, 4k camera and a 15" touch
 
 ## Challenges we ran into
 
-- Integrate custom styled Google Maps and render radius driving areas
-- Building the hardware kit with Raspberry PI, LTE modem, GPS Tracker, RFID reader, 4k camera and 15" touchscreen
+- Integrate custom styled Google Maps and render radius driving areas.
+- Building the hardware kit with Raspberry PI, LTE modem, GPS Tracker, RFID reader, 4k camera and 15" touchscreen.
 - Setup E-Paper display and deploying automatically generated QR codes.
+- Setup internet connectivity trough the LTE modem and a SIM Card.
+- Building a lot of UI components.
+- Integrating uPort.me in to the dApp.
 
-# Raspberry PI Code
+## Raspberry PI Code
 
 Raspberry PI code can be found at ``./pi`` directory.
+
+### How to run it on the Raspberry PI
 
 ## Accomplishments that we're proud of
 
