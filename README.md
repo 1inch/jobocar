@@ -39,6 +39,7 @@ Continues deployment with Circle CI and Github Pages.
 - Setup internet connectivity trough the LTE modem and a SIM Card.
 - Building a lot of UI components.
 - Integrating uPort.me in to the dApp.
+- No time to sleep
 
 ## Raspberry PI Code
 
