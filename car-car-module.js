@@ -601,11 +601,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var locutus_php_math_rand__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! locutus/php/math/rand */ "./node_modules/locutus/php/math/rand.js");
 /* harmony import */ var locutus_php_math_rand__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(locutus_php_math_rand__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
 var MapComponent = /** @class */ (function () {
-    function MapComponent() {
+    function MapComponent(activatedRoute) {
+        this.activatedRoute = activatedRoute;
         this.lat = 0.0;
         this.lng = 0.0;
         this.iconUrl = 'assets/car.png';
@@ -891,6 +894,7 @@ var MapComponent = /** @class */ (function () {
     }
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.activatedRoute.queryParams.subscribe(function (params) { return console.log('queryParams', params); });
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 console.log('Geo location:', position);
@@ -923,7 +927,7 @@ var MapComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./map.component.html */ "./src/app/car/map/map.component.html"),
             styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/car/map/map.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
     ], MapComponent);
     return MapComponent;
 }());

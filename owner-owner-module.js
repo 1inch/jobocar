@@ -151,14 +151,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var NULL_STATE = {
-    did: null,
-    mnid: null,
-    address: null,
-    doc: null,
-    pushToken: null,
-    publicEncKey: null
-};
 var UPortService = /** @class */ (function () {
     function UPortService() {
         this.uport = new uport_connect__WEBPACK_IMPORTED_MODULE_2__["Connect"]('Jobocar', { network: 'mainnet' });
@@ -194,11 +186,8 @@ var UPortService = /** @class */ (function () {
         }
     };
     UPortService.prototype.logout = function () {
-        this.uport.setState(function (currentState) {
-            return NULL_STATE;
-        });
+        this.uport.logout();
         console.log(this.uport.state);
-        localStorage.removeItem('connectState');
     };
     UPortService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
