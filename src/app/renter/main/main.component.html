@@ -13,10 +13,10 @@
 
     <div class="collapse show navbar-collapse" id="navbarSupportedContent"
          style="display: flex!important;flex-basis: auto;">
-        <a class="ml-auto mr-auto">
+        <a class="ml-auto d-none d-md-block">
             <img alt="Jobocar" height="50" src="assets/logo-small.svg" style="display: block;">
         </a>
-        <div class="my-2 my-lg-0">
+        <div class="my-2 my-lg-0 ml-auto">
             <img [src]="gravatarUrl" [hidden]="!uPortService.uport.state.email" width="32">
             {{uPortService.uport.state.name}}
             <button class="btn btn-link my-2 my-sm-0 text-success" routerLink="/renter/settings" type="submit">

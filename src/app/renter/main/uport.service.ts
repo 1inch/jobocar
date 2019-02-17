@@ -10,7 +10,11 @@ export class UPortService {
     uport: Connect;
 
     constructor() {
-        this.uport = new Connect('Jobocar', {network: 'mainnet'});
+        try {
+            this.uport = new Connect('Jobocar', {network: 'mainnet'});
+        } catch (e) {
+            console.log('Error', e);
+        }
     }
 
     requestDisclosure(): Observable<any> {

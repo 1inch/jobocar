@@ -30,6 +30,10 @@ export class MainComponent implements OnInit {
 
     ngOnInit() {
 
+        this.route.queryParams.subscribe(params => {
+            console.log('Query Params', params);
+        });
+
         this.navigationService.showBackButton = true;
 
         if (this.uPortService.isConnected()) {
