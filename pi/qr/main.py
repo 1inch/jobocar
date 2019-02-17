@@ -59,7 +59,7 @@ try:
     print("read bmp file")
     HBlackimage = Image.open('4in2b-b.bmp')
     HRedimage = Image.open('4in2c-y.bmp')
-    epd.display(epd.getbuffer(HRedimage), epd.getbuffer(HBlackimage))
+    epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRedimage))
     time.sleep(2)
     
     # print("read bmp file on window")
