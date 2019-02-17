@@ -1,0 +1,20 @@
+agm-map {
+  min-height: 500px;
+  width: 100%;
+
+  position: fixed;
+  height: 100%;
+}
+
+#info-window {
+  background: white;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 20px;
+}
+
+#info-window img {
+  border-radius: 10px;
+}

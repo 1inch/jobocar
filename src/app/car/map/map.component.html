@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <form class="row" style="width: 100%; text-align: center;">
+            <input aria-label="Search" class="form-control mr-sm-2 col-6 ml-auto" placeholder="Destination"
+                   type="search">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-auto" type="submit">Start Navigation</button>
+        </form>
+    </div>
+</nav>
+
+<agm-map
+    (mapClick)="mapClick($event)"
+    [zoom]="zoom"
+    [latitude]="lat"
+    [longitude]="lng"
+    [styles]="styles"
+    usePanning="true">
+
+    <agm-marker [iconUrl]="iconUrl" [latitude]="lat" [longitude]="lng"></agm-marker>
+
+    <agm-circle
+        [latitude]="goalDestination.lat"
+        [longitude]="goalDestination.lng"
+        [radius]="goalDestination.radius"
+        fillColor="#d28500"
+        fillOpacity="0.6"
+        strokeColor="#008aff"
+        strokeOpacity="0.8"
+        strokeWeight="2"
+    >
+    </agm-circle>
+
+    <agm-direction visible="true" [origin]="{lat: lat, lng: lng}" [destination]="destination">
+    </agm-direction>
+</agm-map>
+
+<div id="info-window">
+    <div class="float-right">
+        <button type="button" class="btn btn-danger btn-lg float-right ml-1">DROP</button>
+        <button type="button" class="btn btn-success btn-lg float-right">TOP UP</button>
+    </div>
+    <h5 class="mt-0" style="font-size: 24px;">Balance: $ 95, 30 min.</h5>
+</div>

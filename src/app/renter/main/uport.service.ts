@@ -16,10 +16,10 @@ const NULL_STATE = {
 })
 export class UPortService {
 
-    uport = new Connect('Jobocar', {network: 'mainnet'});
+    uport: Connect;
 
     constructor() {
-
+        this.uport = new Connect('Jobocar', {network: 'mainnet'});
     }
 
     requestDisclosure(): Observable<any> {
