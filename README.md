@@ -51,8 +51,18 @@ yarn start
 
 ## Accomplishments that we're proud of
 
+- We build our first hardware prototype on a hackathon
+- We build a lot of UI component to deliver better understanding of our idea
+- We solved the deployment problem of a picture on an E-Paper display
+- Invent new crypto graphic scheme to create secure expirable QR codes
 
 ## What we learned
+
+- How to working with Raspberry Pi, LTE modem and E-Paper display
+- How to work with Google Maps
+- How to integrate uPort.me
+- Sleeping only 5 hours over more then 40 hours
+- 
 
 ## What's next for Jobocar
 
