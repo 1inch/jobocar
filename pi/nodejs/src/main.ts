@@ -318,9 +318,12 @@ const carContractABI = [{
     const urls = privateKeys.map(
         (k, i) => {
 
-            const compressed = merkleTree.getHexProof(i).reduce((a, b) => a + b.substr(2));
+            const compressed = Buffer.concat([
+                Buffer.from(privateKeys[i].privateKey, 'base64'),
+                Buffer.concat(merkleTree.getProof(i))
+            ]).toString('base64');
 
-            return 'https://jobocar.com/' + privateKeys[i].privateKey + '/' + i + '/' + compressed;
+            return 'https://jobocar.com/' + i + '/' + compressed;
         }
     );
     console.log('urls = ', urls);
