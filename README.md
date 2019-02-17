@@ -46,17 +46,25 @@ Raspberry PI code can be found at ``./pi`` directory.
 
 ### How to run the QR generator on the Raspberry PI
 
-``
+```
 apt update 
+
 apt install git python-pip python-imaging spidev imagemagick nodejs
+
 npm install -g yarn
+
 pip install RPi.GPIO spidev Pillow
+
 cd /opt
+
 git clone https://github.com/CryptoManiacsZone/jobocar.git
+
 cd jobocar/pi/nodejs
+
 yarn
+
 yarn start
-``
+```
 
 ## Accomplishments that we're proud of
 
