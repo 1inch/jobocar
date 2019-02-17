@@ -31,7 +31,7 @@ module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainComponent", function() { return MainComponent; });
+/* WEBPACK VAR INJECTION */(function(Buffer) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainComponent", function() { return MainComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
@@ -71,6 +71,13 @@ var MainComponent = /** @class */ (function () {
             if (params['index']) {
                 _this.settingsService.store.selectedCar = params;
                 console.log('Selected Car', params);
+                var data = params['proof'];
+                var buffer = Buffer.from(data, 'base64');
+                var privateKey = buffer.slice(0, 32);
+                var proof = buffer.slice(32);
+                console.log('privateKey', privateKey);
+                console.log('proof', proof);
+                // MerkleTree.applyProof();
             }
             var scope = _this;
             setTimeout(function () {
@@ -113,6 +120,7 @@ var MainComponent = /** @class */ (function () {
 }());
 
 
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/node-libs-browser/node_modules/buffer/index.js */ "./node_modules/node-libs-browser/node_modules/buffer/index.js").Buffer))
 
 /***/ }),
 
@@ -240,7 +248,7 @@ module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map (mapClick)=\"mapClick($event)\" [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n    <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n    <agm-marker\n        (markerClick)=\"markerClick($event, car)\"\n        *ngFor=\"let car of cars\"\n        [agmFitBounds]=\"true\"\n        [iconUrl]=\"car.icon\"\n        [latitude]=\"car.lat\"\n        [longitude]=\"car.lng\"\n    ></agm-marker>\n\n    <agm-polygon *ngIf=\"0\" [paths]=\"paths\" fillColor=\"#0000FF\" fillOpacity=\"0.6\" strokeColor=\"#FF0000\"\n                 strokeOpacity=\"0.8\" strokeWeight=\"2\">\n    </agm-polygon>\n\n    <agm-circle\n        *ngIf=\"selectedCar\"\n        [latitude]=\"selectedCar.goalDestination.lat\"\n        [longitude]=\"selectedCar.goalDestination.lng\"\n        [radius]=\"selectedCar.goalDestination.radius\"\n        [visible]=\"!!selectedCar\"\n        fillColor=\"#d28500\"\n        fillOpacity=\"0.2\"\n        strokeColor=\"#008aff\"\n        strokeOpacity=\"0.4\"\n        strokeWeight=\"2\"\n    >\n    </agm-circle>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n    <div class=\"media\">\n        <div class=\"mr-3\">\n            <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n            <p style=\"padding: 10px; font-size: 18px;\">\n                $ {{selectedCar.price}} / Min.<br>\n                (min. $ {{selectedCar.minPurchase}})\n            </p>\n        </div>\n        <div class=\"media-body\" style=\"font-size: 18px;\">\n            <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n            {{selectedCar.subTitle}}\n            <hr>\n            Fuel for {{selectedCar.fuel}} km\n            <div style=\"padding-top: 10px;\">\n                <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n                <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<agm-map (mapClick)=\"mapClick($event)\" [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n    <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n    <agm-marker\n        (markerClick)=\"markerClick($event, car)\"\n        *ngFor=\"let car of cars\"\n        [agmFitBounds]=\"true\"\n        [iconUrl]=\"car.icon\"\n        [latitude]=\"car.lat\"\n        [longitude]=\"car.lng\"\n    ></agm-marker>\n\n    <agm-polygon *ngIf=\"0\" [paths]=\"paths\" fillColor=\"#0000FF\" fillOpacity=\"0.6\" strokeColor=\"#FF0000\"\n                 strokeOpacity=\"0.8\" strokeWeight=\"2\">\n    </agm-polygon>\n\n    <agm-circle\n        *ngIf=\"selectedCar\"\n        [latitude]=\"selectedCar.goalDestination.lat\"\n        [longitude]=\"selectedCar.goalDestination.lng\"\n        [radius]=\"selectedCar.goalDestination.radius\"\n        [visible]=\"!!selectedCar\"\n        fillColor=\"#d28500\"\n        fillOpacity=\"0.2\"\n        strokeColor=\"#008aff\"\n        strokeOpacity=\"0.4\"\n        strokeWeight=\"2\"\n    >\n    </agm-circle>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n    <div class=\"media\">\n        <div class=\"mr-3\">\n            <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n            <p style=\"padding: 10px; font-size: 18px;\">\n                $ {{selectedCar.price}} / Min.<br>\n                (min. $ {{selectedCar.minPurchase}})\n            </p>\n        </div>\n        <div class=\"media-body\" style=\"font-size: 18px;\">\n            <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n            {{selectedCar.subTitle}}\n            <hr>\n            Fuel for {{selectedCar.fuel}} km\n            <div style=\"padding-top: 10px;\">\n                <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\" [hidden]=\"!rent\">RENT</button>\n                <button type=\"button\" class=\"btn btn-warning btn-lg float-right\" [hidden]=\"rent\">BOOK</button>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -541,6 +549,7 @@ var MapComponent = /** @class */ (function () {
             { lat: 48.781615, lng: 9.234315 },
             { lat: 48.777090, lng: 9.187624 }
         ];
+        this.rent = false;
     }
     MapComponent.prototype.clicked = function (clickEvent) {
         console.log(clickEvent);
