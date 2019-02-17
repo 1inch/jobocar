@@ -7,6 +7,9 @@ import {Location} from '@angular/common';
 
 import gravatar from 'gravatar';
 import {SettingsService} from '../settings/settings.service';
+import {MerkleTree} from '../../util/merkle-tree';
+
+declare let Buffer: any;
 
 @Component({
     selector: 'app-main',
@@ -38,6 +41,18 @@ export class MainComponent implements OnInit {
             if (params['index']) {
                 this.settingsService.store.selectedCar = params;
                 console.log('Selected Car', params);
+
+                const data = params['proof'];
+
+
+                const buffer = Buffer.from(data, 'base64');
+                const privateKey = buffer.slice(0, 32);
+                const proof = buffer.slice(32);
+
+                console.log('privateKey', privateKey);
+                console.log('proof', proof);
+
+                // MerkleTree.applyProof();
             }
 
             const scope = this;

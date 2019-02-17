@@ -44,8 +44,8 @@
             <hr>
             Fuel for {{selectedCar.fuel}} km
             <div style="padding-top: 10px;">
-                <button type="button" class="btn btn-primary btn-lg float-right ml-1">GO</button>
-                <button type="button" class="btn btn-warning btn-lg float-right">BOOK</button>
+                <button type="button" class="btn btn-primary btn-lg float-right ml-1" [hidden]="!rent">RENT</button>
+                <button type="button" class="btn btn-warning btn-lg float-right" [hidden]="rent">BOOK</button>
             </div>
         </div>
     </div>
