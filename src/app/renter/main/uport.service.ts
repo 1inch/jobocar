@@ -2,15 +2,6 @@ import {Injectable} from '@angular/core';
 import {Connect} from 'uport-connect';
 import {Observable} from 'rxjs';
 
-const NULL_STATE = {
-    did: null,
-    mnid: null,
-    address: null,
-    doc: null,
-    pushToken: null,
-    publicEncKey: null
-};
-
 @Injectable({
     providedIn: 'root'
 })
@@ -59,12 +50,8 @@ export class UPortService {
     }
 
     logout() {
-        this.uport.setState(function (currentState) {
-            return NULL_STATE;
-        });
 
+        this.uport.logout();
         console.log(this.uport.state);
-
-        localStorage.removeItem('connectState');
     }
 }

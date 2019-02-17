@@ -368,7 +368,7 @@ export class MapComponent implements OnInit {
           this.cars.push(car);
         }
 
-        // console.log(this.cars);
+         console.log(this.cars);
       });
     } else {
       alert('Please allow geo location.');

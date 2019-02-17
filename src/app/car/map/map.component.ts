@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import rand from 'locutus/php/math/rand';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-map',
@@ -299,10 +300,17 @@ export class MapComponent implements OnInit {
         }
     };
 
-    constructor() {
+    constructor(
+        private activatedRoute: ActivatedRoute
+    ) {
+
     }
 
     ngOnInit() {
+
+        this.activatedRoute.queryParams.subscribe(
+            params => console.log('queryParams', params)
+        );
 
         if (navigator.geolocation) {
 
@@ -335,7 +343,7 @@ export class MapComponent implements OnInit {
                 this.destination.lng = this.goalDestination.lng;
 
                 const scope = this;
-                setTimeout(function() {
+                setTimeout(function () {
                     scope.visibleCircle = true;
                 }, 1500);
 

@@ -8,21 +8,19 @@ const keccak160 = function (input) {
 
 export class MerkleTree {
 
-  layers = null;
+  layers: Array<Array<any>> = null;
   elements: Array<any> = null;
 
   constructor(elements) {
     // Create layers
 
     this.elements = elements;
-    this.layers = this.getLayers(elements.map(el => keccak160(el)));
+    this.layers = this.getLayers(elements.map(keccak160));
 
     return this;
   }
 
-  public static applyProof(account, proof) {
-
-    let index = 0;
+  public static applyProof(account, proof, idx) {
 
     console.log('Account0', account);
 
@@ -38,18 +36,14 @@ export class MerkleTree {
 
     for (let i = 0; i < proof.length; i++) {
 
-      if (account < proof[i]) {
+      if ((idx & (1 << i)) == 0) {
         account = keccak160(Buffer.concat([account, proof[i]]));
       } else {
         account = keccak160(Buffer.concat([proof[i], account]));
-        index += 1 << i;
       }
     }
 
-    return {
-      root: account,
-      index: index
-    };
+    return account;
   }
 
   getLayers(elements) {
@@ -65,12 +59,7 @@ export class MerkleTree {
       for (let i = 0; i < tree[level - 1].length / 2; i++) {
         const a = tree[level - 1][i * 2];
         const b = tree[level - 1][i * 2 + 1];
-        let hash;
-        if (a < b) {
-          hash = keccak160(Buffer.concat([a, b]));
-        } else {
-          hash = keccak160(Buffer.concat([b, a]));
-        }
+        let hash = keccak160(Buffer.concat([a, b]));
         current.push(hash);
       }
 
