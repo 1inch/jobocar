@@ -35,7 +35,19 @@ Raspberry Pi with LTE modem, GPS tracker, RFID reader, 4k camera and a 15" touch
 
 Raspberry PI code can be found at ``./pi`` directory.
 
-### How to run it on the Raspberry PI
+### How to run the QR generator on the Raspberry PI
+
+``
+apt update 
+apt install git python-pip python-imaging spidev imagemagick nodejs
+npm install -g yarn
+pip install RPi.GPIO spidev Pillow
+cd /opt
+git clone https://github.com/CryptoManiacsZone/jobocar.git
+cd jobocar/pi/nodejs
+yarn
+yarn start
+``
 
 ## Accomplishments that we're proud of
 
