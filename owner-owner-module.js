@@ -1,31 +1,31 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["renter-renter-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["owner-owner-module"],{
 
-/***/ "./src/app/renter/main/main.component.css":
+/***/ "./src/app/owner/main/main.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/owner/main/main.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL293bmVyL21haW4vbWFpbi5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/owner/main/main.component.html":
 /*!************************************************!*\
-  !*** ./src/app/renter/main/main.component.css ***!
+  !*** ./src/app/owner/main/main.component.html ***!
   \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlbnRlci9tYWluL21haW4uY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n\n    <button (click)=\"goBack()\" [hidden]=\"!navigationService.showBackButton\"\n            class=\"btn btn-link my-2 my-sm-0 text-success\" type=\"submit\">\n        <fa-icon [icon]=\"backIcon\" style=\"font-size: 30px;\"></fa-icon>\n    </button>\n\n    <button [hidden]=\"navigationService.showBackButton\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\"\n            aria-label=\"Toggle navigation\" class=\"navbar-toggler text-success\" data-target=\"#navbarSupportedContent\"\n            data-toggle=\"collapse\" style=\"display: block;\" type=\"button\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse show navbar-collapse\" id=\"navbarSupportedContent\"\n         style=\"display: flex!important;flex-basis: auto;\">\n        <a class=\"ml-auto mr-auto\">\n            <img alt=\"Jobocar\" height=\"50\" src=\"assets/logo-small.svg\" style=\"display: block;\">\n        </a>\n        <div class=\"my-2 my-lg-0\">\n            <img [src]=\"gravatarUrl\" [hidden]=\"!uPortService.uport.state.email\" width=\"32\">\n            {{uPortService.uport.state.name}}\n            <button class=\"btn btn-link my-2 my-sm-0 text-success\" routerLink=\"/owner/settings\" type=\"submit\">\n                <fa-icon [icon]=\"settingsIcon\" style=\"font-size: 30px;\"></fa-icon>\n            </button>\n        </div>\n    </div>\n</nav>\n\n<div class=\"container-fluid\" [hidden]=\"!loading\" style=\"height: 100%;\">\n    <div class=\"row align-items-center\" style=\"min-height: 100%\">\n        <div class=\"col\" style=\"text-align: center;\">\n            <h2><strong>uPort.me</strong> Authentication! Please wait...</h2>\n        </div>\n    </div>\n</div>\n\n<div [hidden]=\"loading\">\n    <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
-/***/ "./src/app/renter/main/main.component.html":
-/*!*************************************************!*\
-  !*** ./src/app/renter/main/main.component.html ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n\n    <button (click)=\"goBack()\" [hidden]=\"!navigationService.showBackButton\"\n            class=\"btn btn-link my-2 my-sm-0 text-success\" type=\"submit\">\n        <fa-icon [icon]=\"backIcon\" style=\"font-size: 30px;\"></fa-icon>\n    </button>\n\n    <button [hidden]=\"navigationService.showBackButton\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\"\n            aria-label=\"Toggle navigation\" class=\"navbar-toggler text-success\" data-target=\"#navbarSupportedContent\"\n            data-toggle=\"collapse\" style=\"display: block;\" type=\"button\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"collapse show navbar-collapse\" id=\"navbarSupportedContent\"\n         style=\"display: flex!important;flex-basis: auto;\">\n        <a class=\"ml-auto mr-auto\">\n            <img alt=\"Jobocar\" height=\"50\" src=\"assets/logo-small.svg\" style=\"display: block;\">\n        </a>\n        <div class=\"my-2 my-lg-0\">\n            <img [src]=\"gravatarUrl\" [hidden]=\"!uPortService.uport.state.email\" width=\"32\">\n            {{uPortService.uport.state.name}}\n            <button class=\"btn btn-link my-2 my-sm-0 text-success\" routerLink=\"/renter/settings\" type=\"submit\">\n                <fa-icon [icon]=\"settingsIcon\" style=\"font-size: 30px;\"></fa-icon>\n            </button>\n        </div>\n    </div>\n</nav>\n\n<div class=\"container-fluid\" [hidden]=\"!loading\" style=\"height: 100%;\">\n    <div class=\"row align-items-center\" style=\"min-height: 100%\">\n        <div class=\"col\" style=\"text-align: center;\">\n            <h2><strong>uPort.me</strong> Authentication! Please wait...</h2>\n        </div>\n    </div>\n</div>\n\n<div [hidden]=\"loading\">\n    <router-outlet></router-outlet>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/renter/main/main.component.ts":
-/*!***********************************************!*\
-  !*** ./src/app/renter/main/main.component.ts ***!
-  \***********************************************/
+/***/ "./src/app/owner/main/main.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/owner/main/main.component.ts ***!
+  \**********************************************/
 /*! exports provided: MainComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -35,8 +35,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navigation.service */ "./src/app/renter/main/navigation.service.ts");
-/* harmony import */ var _uport_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./uport.service */ "./src/app/renter/main/uport.service.ts");
+/* harmony import */ var _navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./navigation.service */ "./src/app/owner/main/navigation.service.ts");
+/* harmony import */ var _uport_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./uport.service */ "./src/app/owner/main/uport.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var gravatar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gravatar */ "./node_modules/gravatar/index.js");
@@ -75,7 +75,7 @@ var MainComponent = /** @class */ (function () {
                 _this.gravatarUrl = gravatar__WEBPACK_IMPORTED_MODULE_7___default.a.url(state.email);
                 _this.loading = false;
                 console.log('State', state);
-                _this.router.navigate(['/renter']);
+                _this.router.navigate(['/owner']);
             });
         }
     };
@@ -85,8 +85,8 @@ var MainComponent = /** @class */ (function () {
     MainComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-main',
-            template: __webpack_require__(/*! ./main.component.html */ "./src/app/renter/main/main.component.html"),
-            styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/renter/main/main.component.css")]
+            template: __webpack_require__(/*! ./main.component.html */ "./src/app/owner/main/main.component.html"),
+            styles: [__webpack_require__(/*! ./main.component.css */ "./src/app/owner/main/main.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"],
             _navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"],
@@ -101,10 +101,10 @@ var MainComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/renter/main/navigation.service.ts":
-/*!***************************************************!*\
-  !*** ./src/app/renter/main/navigation.service.ts ***!
-  \***************************************************/
+/***/ "./src/app/owner/main/navigation.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/owner/main/navigation.service.ts ***!
+  \**************************************************/
 /*! exports provided: NavigationService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -132,10 +132,10 @@ var NavigationService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/renter/main/uport.service.ts":
-/*!**********************************************!*\
-  !*** ./src/app/renter/main/uport.service.ts ***!
-  \**********************************************/
+/***/ "./src/app/owner/main/uport.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/owner/main/uport.service.ts ***!
+  \*********************************************/
 /*! exports provided: UPortService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -213,32 +213,32 @@ var UPortService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/renter/map/map.component.css":
+/***/ "./src/app/owner/map/map.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/owner/map/map.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position: fixed;\n  height: 100%;\n}\n\n#info-window {\n  background: white;\n  height: 230px;\n  width: 100%;\n  position: fixed;\n  bottom: 0;\n  padding: 20px;\n}\n\n#info-window img {\n  border-radius: 10px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvb3duZXIvbWFwL21hcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUJBQWlCO0VBQ2pCLFdBQVc7O0VBRVgsZUFBZTtFQUNmLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsV0FBVztFQUNYLGVBQWU7RUFDZixTQUFTO0VBQ1QsYUFBYTtBQUNmOztBQUVBO0VBQ0UsbUJBQW1CO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvb3duZXIvbWFwL21hcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYWdtLW1hcCB7XG4gIG1pbi1oZWlnaHQ6IDUwMHB4O1xuICB3aWR0aDogMTAwJTtcblxuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuI2luZm8td2luZG93IHtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIGhlaWdodDogMjMwcHg7XG4gIHdpZHRoOiAxMDAlO1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIGJvdHRvbTogMDtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuI2luZm8td2luZG93IGltZyB7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XG59XG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/owner/map/map.component.html":
 /*!**********************************************!*\
-  !*** ./src/app/renter/map/map.component.css ***!
+  !*** ./src/app/owner/map/map.component.html ***!
   \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "agm-map {\n  min-height: 500px;\n  width: 100%;\n\n  position: fixed;\n  height: 100%;\n}\n\n#info-window {\n  background: white;\n  height: 230px;\n  width: 100%;\n  position: fixed;\n  bottom: 0;\n  padding: 20px;\n}\n\n#info-window img {\n  border-radius: 10px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVudGVyL21hcC9tYXAuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGlCQUFpQjtFQUNqQixXQUFXOztFQUVYLGVBQWU7RUFDZixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsYUFBYTtFQUNiLFdBQVc7RUFDWCxlQUFlO0VBQ2YsU0FBUztFQUNULGFBQWE7QUFDZjs7QUFFQTtFQUNFLG1CQUFtQjtBQUNyQiIsImZpbGUiOiJzcmMvYXBwL3JlbnRlci9tYXAvbWFwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhZ20tbWFwIHtcbiAgbWluLWhlaWdodDogNTAwcHg7XG4gIHdpZHRoOiAxMDAlO1xuXG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4jaW5mby13aW5kb3cge1xuICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbiAgaGVpZ2h0OiAyMzBweDtcbiAgd2lkdGg6IDEwMCU7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgYm90dG9tOiAwO1xuICBwYWRkaW5nOiAyMHB4O1xufVxuXG4jaW5mby13aW5kb3cgaW1nIHtcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcbn1cbiJdfQ== */"
+module.exports = "<agm-map (mapClick)=\"mapClick($event)\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\" [zoom]=\"12\">\n    <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n    <agm-marker\n        (markerClick)=\"markerClick($event, car)\"\n        *ngFor=\"let car of cars\"\n        [agmFitBounds]=\"true\"\n        [iconUrl]=\"car.icon\"\n        [latitude]=\"car.lat\"\n        [longitude]=\"car.lng\"\n    ></agm-marker>\n\n    <agm-polygon *ngIf=\"0\" [paths]=\"paths\" fillColor=\"#0000FF\" fillOpacity=\"0.6\" strokeColor=\"#FF0000\"\n                 strokeOpacity=\"0.8\" strokeWeight=\"2\">\n    </agm-polygon>\n\n    <agm-circle\n        *ngIf=\"selectedCar\"\n        [latitude]=\"selectedCar.goalDestination.lat\"\n        [longitude]=\"selectedCar.goalDestination.lng\"\n        [radius]=\"selectedCar.goalDestination.radius\"\n        [visible]=\"!!selectedCar\"\n        fillColor=\"#d28500\"\n        fillOpacity=\"0.2\"\n        strokeColor=\"#008aff\"\n        strokeOpacity=\"0.4\"\n        strokeWeight=\"2\"\n    >\n    </agm-circle>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n    <div class=\"media\">\n        <div class=\"mr-3\">\n            <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n            <p style=\"padding: 10px; font-size: 18px;\">\n                $ <input class=\"form-control\" style=\"width: 70px; display: inline-block;\" [(ngModel)]=\"settingsService.store.cars[selectedCar.id].price\" type=\"text\" placeholder=\"Price / Minute\"> / Min.<br>\n                (min. $ <input class=\"form-control\" style=\"width: 70px; display: inline-block;\" [(ngModel)]=\"settingsService.store.cars[selectedCar.id].minPurchase\" type=\"text\" placeholder=\"Price / Minute\">)\n            </p>\n        </div>\n        <div class=\"media-body\" style=\"font-size: 18px;\">\n            <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}} <span class=\"badge badge-warning\">DRIVING</span></h5>\n            {{selectedCar.subTitle}}\n            <hr>\n            Fuel for {{selectedCar.fuel}} km\n            <div style=\"padding-top: 10px;\">\n                <button type=\"button\" class=\"btn btn-danger btn-lg float-right ml-1\">CALL IT BACK</button>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
-/***/ "./src/app/renter/map/map.component.html":
-/*!***********************************************!*\
-  !*** ./src/app/renter/map/map.component.html ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<agm-map (mapClick)=\"mapClick($event)\" [fitBounds]=\"true\" [latitude]=\"lat\" [longitude]=\"lng\" [styles]=\"styles\">\n    <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\n\n    <agm-marker\n        (markerClick)=\"markerClick($event, car)\"\n        *ngFor=\"let car of cars\"\n        [agmFitBounds]=\"true\"\n        [iconUrl]=\"car.icon\"\n        [latitude]=\"car.lat\"\n        [longitude]=\"car.lng\"\n    ></agm-marker>\n\n    <agm-polygon *ngIf=\"0\" [paths]=\"paths\" fillColor=\"#0000FF\" fillOpacity=\"0.6\" strokeColor=\"#FF0000\"\n                 strokeOpacity=\"0.8\" strokeWeight=\"2\">\n    </agm-polygon>\n\n    <agm-circle\n        *ngIf=\"selectedCar\"\n        [latitude]=\"selectedCar.goalDestination.lat\"\n        [longitude]=\"selectedCar.goalDestination.lng\"\n        [radius]=\"selectedCar.goalDestination.radius\"\n        [visible]=\"!!selectedCar\"\n        fillColor=\"#d28500\"\n        fillOpacity=\"0.2\"\n        strokeColor=\"#008aff\"\n        strokeOpacity=\"0.4\"\n        strokeWeight=\"2\"\n    >\n    </agm-circle>\n</agm-map>\n\n<div id=\"info-window\" *ngIf=\"selectedCar\">\n    <div class=\"media\">\n        <div class=\"mr-3\">\n            <img src=\"assets/eq.jpg\" [title]=\"selectedCar.title\" height=\"100\">\n            <p style=\"padding: 10px; font-size: 18px;\">\n                $ {{selectedCar.price}} / Min.<br>\n                (min. $ {{selectedCar.minPurchase}})\n            </p>\n        </div>\n        <div class=\"media-body\" style=\"font-size: 18px;\">\n            <h5 class=\"mt-0\" style=\"font-size: 24px;\">{{selectedCar.title}}</h5>\n            {{selectedCar.subTitle}}\n            <hr>\n            Fuel for {{selectedCar.fuel}} km\n            <div style=\"padding-top: 10px;\">\n                <button type=\"button\" class=\"btn btn-primary btn-lg float-right ml-1\">GO</button>\n                <button type=\"button\" class=\"btn btn-warning btn-lg float-right\">BOOK</button>\n            </div>\n        </div>\n    </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/renter/map/map.component.ts":
-/*!*********************************************!*\
-  !*** ./src/app/renter/map/map.component.ts ***!
-  \*********************************************/
+/***/ "./src/app/owner/map/map.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/owner/map/map.component.ts ***!
+  \********************************************/
 /*! exports provided: MapComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -249,11 +249,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var locutus_php_math_rand__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! locutus/php/math/rand */ "./node_modules/locutus/php/math/rand.js");
 /* harmony import */ var locutus_php_math_rand__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(locutus_php_math_rand__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _settings_settings_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../settings/settings.service */ "./src/app/owner/settings/settings.service.ts");
+
 
 
 
 var MapComponent = /** @class */ (function () {
-    function MapComponent() {
+    function MapComponent(settingsService) {
+        this.settingsService = settingsService;
         this.lat = 0.0;
         this.lng = 0.0;
         this.cars = [];
@@ -550,8 +553,9 @@ var MapComponent = /** @class */ (function () {
                 console.log('Geo location:', position);
                 _this.lat = position.coords.latitude;
                 _this.lng = position.coords.longitude;
-                for (var i = 0; i < 5; i++) {
+                for (var i = 0; i < 1; i++) {
                     var car = {
+                        id: i,
                         title: 'S-N293E' + i,
                         subTitle: 'Mercedes Benz EQC',
                         goalDestination: {
@@ -576,6 +580,8 @@ var MapComponent = /** @class */ (function () {
                     car.goalDestination.lng = car.lng + ((i % 2 ? -1 : 1) *
                         _this.lng * 10000000 / 100 * (Math.floor(Math.random() * 10) + 1) / 100
                         / 10000000);
+                    _this.settingsService.store['cars'][i].price = car.price;
+                    _this.settingsService.store['cars'][i].minPurchase = car.minPurchase;
                     _this.cars.push(car);
                 }
                 // console.log(this.cars);
@@ -586,6 +592,7 @@ var MapComponent = /** @class */ (function () {
         }
     };
     MapComponent.prototype.markerClick = function ($event, car) {
+        console.log('Cars', this.settingsService.store);
         console.log('Event', $event);
         console.log('Selected car:', car);
         for (var i = 0; i < this.cars.length; i++) {
@@ -603,10 +610,10 @@ var MapComponent = /** @class */ (function () {
     MapComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-map',
-            template: __webpack_require__(/*! ./map.component.html */ "./src/app/renter/map/map.component.html"),
-            styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/renter/map/map.component.css")]
+            template: __webpack_require__(/*! ./map.component.html */ "./src/app/owner/map/map.component.html"),
+            styles: [__webpack_require__(/*! ./map.component.css */ "./src/app/owner/map/map.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_settings_settings_service__WEBPACK_IMPORTED_MODULE_3__["SettingsService"]])
     ], MapComponent);
     return MapComponent;
 }());
@@ -615,27 +622,27 @@ var MapComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/renter/renter.module.ts":
-/*!*****************************************!*\
-  !*** ./src/app/renter/renter.module.ts ***!
-  \*****************************************/
-/*! exports provided: RenterModule */
+/***/ "./src/app/owner/owner.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/owner/owner.module.ts ***!
+  \***************************************/
+/*! exports provided: OwnerModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RenterModule", function() { return RenterModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OwnerModule", function() { return OwnerModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./map/map.component */ "./src/app/renter/map/map.component.ts");
+/* harmony import */ var _map_map_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./map/map.component */ "./src/app/owner/map/map.component.ts");
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
 /* harmony import */ var primeng_menubar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/menubar */ "./node_modules/primeng/menubar.js");
 /* harmony import */ var primeng_menubar__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_menubar__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/main.component */ "./src/app/renter/main/main.component.ts");
+/* harmony import */ var _main_main_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./main/main.component */ "./src/app/owner/main/main.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "./node_modules/@fortawesome/angular-fontawesome/fesm5/angular-fontawesome.js");
-/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/renter/settings/settings.component.ts");
+/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/owner/settings/settings.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 
 
@@ -664,10 +671,10 @@ var routes = [
         ]
     }
 ];
-var RenterModule = /** @class */ (function () {
-    function RenterModule() {
+var OwnerModule = /** @class */ (function () {
+    function OwnerModule() {
     }
-    RenterModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    OwnerModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"],
@@ -686,29 +693,29 @@ var RenterModule = /** @class */ (function () {
             ],
             exports: []
         })
-    ], RenterModule);
-    return RenterModule;
+    ], OwnerModule);
+    return OwnerModule;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/renter/settings/settings.component.css":
-/*!********************************************************!*\
-  !*** ./src/app/renter/settings/settings.component.css ***!
-  \********************************************************/
+/***/ "./src/app/owner/settings/settings.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/owner/settings/settings.component.css ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "form {\n    padding: 50px;\n    background: white;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVudGVyL3NldHRpbmdzL3NldHRpbmdzLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0lBQ2IsaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvcmVudGVyL3NldHRpbmdzL3NldHRpbmdzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJmb3JtIHtcbiAgICBwYWRkaW5nOiA1MHB4O1xuICAgIGJhY2tncm91bmQ6IHdoaXRlO1xufVxuIl19 */"
+module.exports = "form {\n    padding: 50px;\n    background: white;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvb3duZXIvc2V0dGluZ3Mvc2V0dGluZ3MuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGFBQWE7SUFDYixpQkFBaUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9vd25lci9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZm9ybSB7XG4gICAgcGFkZGluZzogNTBweDtcbiAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcbn1cbiJdfQ== */"
 
 /***/ }),
 
-/***/ "./src/app/renter/settings/settings.component.html":
-/*!*********************************************************!*\
-  !*** ./src/app/renter/settings/settings.component.html ***!
-  \*********************************************************/
+/***/ "./src/app/owner/settings/settings.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/owner/settings/settings.component.html ***!
+  \********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -716,10 +723,10 @@ module.exports = "<form>\n    <div class=\"form-group row\">\n        <label for
 
 /***/ }),
 
-/***/ "./src/app/renter/settings/settings.component.ts":
-/*!*******************************************************!*\
-  !*** ./src/app/renter/settings/settings.component.ts ***!
-  \*******************************************************/
+/***/ "./src/app/owner/settings/settings.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/owner/settings/settings.component.ts ***!
+  \******************************************************/
 /*! exports provided: SettingsComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -728,9 +735,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsComponent", function() { return SettingsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _main_navigation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main/navigation.service */ "./src/app/renter/main/navigation.service.ts");
+/* harmony import */ var _main_navigation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main/navigation.service */ "./src/app/owner/main/navigation.service.ts");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _settings_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./settings.service */ "./src/app/renter/settings/settings.service.ts");
+/* harmony import */ var _settings_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./settings.service */ "./src/app/owner/settings/settings.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
@@ -762,8 +769,8 @@ var SettingsComponent = /** @class */ (function () {
     SettingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-settings',
-            template: __webpack_require__(/*! ./settings.component.html */ "./src/app/renter/settings/settings.component.html"),
-            styles: [__webpack_require__(/*! ./settings.component.css */ "./src/app/renter/settings/settings.component.css")]
+            template: __webpack_require__(/*! ./settings.component.html */ "./src/app/owner/settings/settings.component.html"),
+            styles: [__webpack_require__(/*! ./settings.component.css */ "./src/app/owner/settings/settings.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_main_navigation_service__WEBPACK_IMPORTED_MODULE_2__["NavigationService"],
             _settings_service__WEBPACK_IMPORTED_MODULE_4__["SettingsService"],
@@ -776,10 +783,10 @@ var SettingsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/renter/settings/settings.service.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/renter/settings/settings.service.ts ***!
-  \*****************************************************/
+/***/ "./src/app/owner/settings/settings.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/owner/settings/settings.service.ts ***!
+  \****************************************************/
 /*! exports provided: SettingsService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -788,34 +795,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsService", function() { return SettingsService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _main_uport_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main/uport.service */ "./src/app/renter/main/uport.service.ts");
+/* harmony import */ var _main_uport_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main/uport.service */ "./src/app/owner/main/uport.service.ts");
 
 
 
 var SettingsService = /** @class */ (function () {
     function SettingsService(uPortService) {
         this.uPortService = uPortService;
-        this._store = {
+        this.store = {
             paymentCurrency: 'DAI',
-            certCenter: 'lbbw'
+            certCenter: 'lbbw',
+            cars: {
+                0: {
+                    price: 0,
+                    minPurchase: 0
+                }
+            }
         };
         var settingsStore = localStorage.getItem('settingsStore');
         if (settingsStore) {
-            this._store = JSON.parse(settingsStore);
+            this.store = JSON.parse(settingsStore);
         }
     }
-    Object.defineProperty(SettingsService.prototype, "store", {
-        get: function () {
-            return this._store;
-        },
-        set: function (value) {
-            this._store = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
     SettingsService.prototype.storeInLocalStorage = function () {
-        localStorage.setItem('settingsStore', JSON.stringify(this._store));
+        localStorage.setItem('settingsStore', JSON.stringify(this.store));
     };
     SettingsService.prototype.logout = function () {
         localStorage.removeItem('settingsStore');
@@ -835,4 +838,4 @@ var SettingsService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=renter-renter-module.js.map
+//# sourceMappingURL=owner-owner-module.js.map

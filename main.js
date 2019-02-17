@@ -41,12 +41,19 @@ module.exports = g;
 var map = {
 	"./car/car.module": [
 		"./src/app/car/car.module.ts",
-		"default~car-car-module~renter-renter-module",
+		"default~car-car-module~owner-owner-module~renter-renter-module",
 		"car-car-module"
+	],
+	"./owner/owner.module": [
+		"./src/app/owner/owner.module.ts",
+		"default~car-car-module~owner-owner-module~renter-renter-module",
+		"default~owner-owner-module~renter-renter-module",
+		"owner-owner-module"
 	],
 	"./renter/renter.module": [
 		"./src/app/renter/renter.module.ts",
-		"default~car-car-module~renter-renter-module",
+		"default~car-car-module~owner-owner-module~renter-renter-module",
+		"default~owner-owner-module~renter-renter-module",
 		"renter-renter-module"
 	]
 };
@@ -172,6 +179,10 @@ var routes = [
         loadChildren: './car/car.module#CarModule'
     },
     {
+        path: 'owner',
+        loadChildren: './owner/owner.module#OwnerModule'
+    },
+    {
         path: '**',
         component: _no_content_no_content_component__WEBPACK_IMPORTED_MODULE_7__["NoContentComponent"]
     },
@@ -225,7 +236,7 @@ module.exports = "#select-screen {\n    height: 100%;\n\n    text-align: center;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" id=\"select-screen\">\n    <div class=\"row align-items-center\">\n        <div class=\"col-md-6 col-sm-12\">\n            <img src=\"assets/logo-without-title-blue.svg\" routerLink=\"/renter\" style=\"width: 50%; cursor: pointer; outline: none;\">\n            <h2><strong style=\"color: #3E87BC;\">Rent</strong> a Car</h2>\n        </div>\n        <div class=\"col-md-6 col-sm-12\">\n            <img src=\"assets/logo-without-title.svg\" style=\"width: 50%; cursor: pointer; outline: none;\">\n            <h2><strong style=\"color: #50a845;\">Share</strong> my Car</h2>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\" id=\"select-screen\">\n    <div class=\"row align-items-center\">\n        <div class=\"col-md-6 col-sm-12\">\n            <img src=\"assets/logo-without-title-blue.svg\" routerLink=\"/renter\" style=\"width: 50%; cursor: pointer; outline: none;\">\n            <h2><strong style=\"color: #3E87BC;\">Rent</strong> a Car</h2>\n        </div>\n        <div class=\"col-md-6 col-sm-12\">\n            <img src=\"assets/logo-without-title.svg\" routerLink=\"/owner\" style=\"width: 50%; cursor: pointer; outline: none;\">\n            <h2><strong style=\"color: #50a845;\">Share</strong> my Car</h2>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
