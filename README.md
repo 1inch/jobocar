@@ -24,7 +24,7 @@ own private car for any crypto currency based on Ethereum Network.
 
 ## How we built it
 
-Angular for the frontend UI ov renter, car owner and the vehicle device.
+Angular for the frontend UI of renter, car owner and the vehicle device.
 Smart Contracts written in Solidity and deployed on Ethereum blockchain for the backend implementation. 
 Python for updating E-Paper display.
 Raspberry Pi with LTE modem, GPS tracker, RFID reader, 4k camera and a 15" touchscreen for vehicle hardware kit.
