@@ -30,6 +30,13 @@ export class MainComponent implements OnInit {
 
     ngOnInit() {
 
+        this.route.queryParams.subscribe(params => {
+            const scope = this;
+            setTimeout(function() {
+                scope.router.navigate(['/owner']);
+            }, 500);
+        });
+
         this.navigationService.showBackButton = true;
 
         if (this.uPortService.isConnected()) {

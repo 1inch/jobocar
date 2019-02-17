@@ -43,7 +43,7 @@ export class MainComponent implements OnInit {
             const scope = this;
             setTimeout(function() {
                 scope.router.navigate(['/renter']);
-            }, 1000);
+            }, 500);
         });
 
         this.navigationService.showBackButton = true;
