@@ -8,14 +8,14 @@ const keccak160 = function (input) {
 
 export class MerkleTree {
 
-  layers = null;
+  layers: Array<Array<any>> = null;
   elements: Array<any> = null;
 
   constructor(elements) {
     // Create layers
 
     this.elements = elements;
-    this.layers = this.getLayers(elements.map(el => keccak160(el)));
+    this.layers = this.getLayers(elements.map(keccak160));
 
     return this;
   }

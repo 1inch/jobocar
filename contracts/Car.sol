@@ -81,26 +81,6 @@ contract Car is Ownable, Vehicle, AnyPaymentReceiver {
         });
     }
 
-    function addExpiringCode(
-        uint160 notYetExpiredCode,
-        uint160[] calldata alreadyExpiredCodes
-    )
-        external
-        onlyOwner
-    {
-        for (uint i = 0; i < alreadyExpiredCodes.length; i++) {
-            if (expiringCodesMerkleRoots[alreadyExpiredCodes[i]] != 0) {
-                delete expiringCodesMerkleRoots[alreadyExpiredCodes[i]];
-                emit ExpiringCodeRemoved(alreadyExpiredCodes[i]);
-            }
-        }
-
-        if (expiringCodesMerkleRoots[notYetExpiredCode] == 0) {
-            expiringCodesMerkleRoots[notYetExpiredCode] = now;
-            emit ExpiringCodeAdded(notYetExpiredCode);
-        }
-    }
-
     function updateCertCenters(
         address[] calldata notYetTrustedCertCenters,
         address[] calldata alreadyTrustedCertCenters
@@ -124,6 +104,28 @@ contract Car is Ownable, Vehicle, AnyPaymentReceiver {
     }
 
     // Vehicle methods
+
+    function addExpiringCode(
+        uint160 notYetExpiredCode,
+        uint160[] calldata alreadyExpiredCodes
+    )
+        external
+        onlyVehicle
+    {
+        require(state == State.AvailableForRent);
+
+        for (uint i = 0; i < alreadyExpiredCodes.length; i++) {
+            if (expiringCodesMerkleRoots[alreadyExpiredCodes[i]] != 0) {
+                delete expiringCodesMerkleRoots[alreadyExpiredCodes[i]];
+                emit ExpiringCodeRemoved(alreadyExpiredCodes[i]);
+            }
+        }
+
+        if (expiringCodesMerkleRoots[notYetExpiredCode] == 0) {
+            expiringCodesMerkleRoots[notYetExpiredCode] = now;
+            emit ExpiringCodeAdded(notYetExpiredCode);
+        }
+    }
 
     function postLocation(uint256 latitude, uint256 longitude) public onlyVehicle {
         require(state != State.AlreadyRented);
