@@ -316,7 +316,12 @@ const carContractABI = [{
     // Create URLs
 
     const urls = privateKeys.map(
-        (k, i) => 'https://jobocar.com/' + privateKeys[i].privateKey + '/' + i + '/' + merkleTree.getHexProof(i).reduce((a, b) => a + b.substr(2))
+        (k, i) => {
+
+            const compressed = merkleTree.getHexProof(i).reduce((a, b) => a + b.substr(2));
+
+            return 'https://jobocar.com/' + privateKeys[i].privateKey + '/' + i + '/' + compressed;
+        }
     );
     console.log('urls = ', urls);
 
@@ -330,14 +335,15 @@ const carContractABI = [{
                         encoding: null
                     });
 
+                console.log('URL', urls[i]);
+
                 await qrCodeLogo(urls[i], qrcodeImgFilePath, {
                     size: 12,
                     margin: 0,
                     logo: logoBuffer,
                     logoBorder: {
                         width: 4,
-                        color: 0xffffff,
-                        radius: 20
+                        color: 0x000000,
                     }
                 });
 
