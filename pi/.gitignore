@@ -1,0 +1,4 @@
+dist*.png
+dist*.bmp
+qrcode.bmp
+*.pyc
