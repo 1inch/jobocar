@@ -41,6 +41,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var gravatar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gravatar */ "./node_modules/gravatar/index.js");
 /* harmony import */ var gravatar__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(gravatar__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _settings_settings_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../settings/settings.service */ "./src/app/renter/settings/settings.service.ts");
+
 
 
 
@@ -50,10 +52,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var MainComponent = /** @class */ (function () {
-    function MainComponent(location, navigationService, uPortService, route, router) {
+    function MainComponent(location, navigationService, uPortService, settingsService, route, router) {
         this.location = location;
         this.navigationService = navigationService;
         this.uPortService = uPortService;
+        this.settingsService = settingsService;
         this.route = route;
         this.router = router;
         this.settingsIcon = _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCog"];
@@ -65,6 +68,14 @@ var MainComponent = /** @class */ (function () {
         var _this = this;
         this.route.queryParams.subscribe(function (params) {
             console.log('Query Params', params);
+            if (params['index']) {
+                _this.settingsService.store.selectedCar = params;
+                console.log('Selected Car', params);
+            }
+            var scope = _this;
+            setTimeout(function () {
+                scope.router.navigate(['/renter']);
+            }, 1000);
         });
         this.navigationService.showBackButton = true;
         if (this.uPortService.isConnected()) {
@@ -94,6 +105,7 @@ var MainComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"],
             _navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"],
             _uport_service__WEBPACK_IMPORTED_MODULE_4__["UPortService"],
+            _settings_settings_service__WEBPACK_IMPORTED_MODULE_8__["SettingsService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], MainComponent);
@@ -794,7 +806,8 @@ var SettingsService = /** @class */ (function () {
         this.uPortService = uPortService;
         this._store = {
             paymentCurrency: 'DAI',
-            certCenter: 'lbbw'
+            certCenter: 'lbbw',
+            selectedCar: {}
         };
         var settingsStore = localStorage.getItem('settingsStore');
         if (settingsStore) {
