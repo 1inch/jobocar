@@ -20,12 +20,12 @@ const carContractABI = [{"constant":true,"inputs":[],"name":"vehicle","outputs":
 
     // Import private key
 
-    if (privateKey.length !== 66) {
-        console.log('privateKey should be of length 66.' + (privateKey.length === 64 ? ' Prepend with "0x".' : ''));
-        return;
-    }
-    const account = web3.eth.accounts.privateKeyToAccount(privateKey);
-    console.log('account = ' + account.address);
+    // if (privateKey.length !== 66) {
+    //     console.log('privateKey should be of length 66.' + (privateKey.length === 64 ? ' Prepend with "0x".' : ''));
+    //     return;
+    // }
+    // const account = web3.eth.accounts.privateKeyToAccount(privateKey);
+    // console.log('account = ' + account.address);
 
     // Generate private keys and build a merkle tree
 
@@ -44,22 +44,24 @@ const carContractABI = [{"constant":true,"inputs":[],"name":"vehicle","outputs":
 
     const gasPrice = (await fetch('gasprice.poa.network')).json().fast;
 
-    const receipt = await carContract.methods
-      .addExpiringCodes(merkleTree.getHexRoot(), [])
-      .send({
-        from: account,
-        gasPrice: gasPrice,
-      });
+    // const receipt = await carContract.methods
+    //   .addExpiringCodes(merkleTree.getHexRoot(), [])
+    //   .send({
+    //     from: account,
+    //     gasPrice: gasPrice,
+    //   });
 
     // Create URLs
 
     const urls = privateKeys.map(
         (k,i) => 'https://jobocar.com/' + privateKeys[i] + '/' + i + '/' + merkleTree.getHexProof(i)
     );
+    console.log('urls = ', urls);
 
     // Create QR codes
 
     const qrs = await Promise.all(urls.map(QRCode.toDataURL));
+    console.log('qrs = ', qrs);
 
     //TODO:
     // 1. get receipt time and make a loop
